@@ -61,7 +61,7 @@ class DealsController extends Controller
                     $idRuleToAchieve = $goal->idRuleToAchieve;
 
                     $achieve = DB::table('rules_to_achieves')->where('id', $idRuleToAchieve)->first();
-                    $idTypeToAchieve = $achieve->idTypeToAchieve;
+                    $idTypeToAchieve = $achieve->idTypeAchieve;
                     if ($idTypeToAchieve == 1) {
                         if ($achieve->gather) {
                             if (($data->input('amount') + $customerGoal->amountStored) >= $achieve->amount) {
