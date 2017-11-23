@@ -8,7 +8,7 @@
 @foreach ($prizes as $prize)
 	    <ul class="list-group margem">
 	  		<li class="list-group-item"><span class="badge even">
-	  			<i aria-hidden="true">{{ $prize->price }}Pontos</i>
+	  			<i class="eventos-list" aria-hidden="true">{{ $prize->price }}</i>
 	  		</span>{{ $prize->name }}</li>
 		</ul>
 @endforeach
