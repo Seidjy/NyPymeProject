@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
     
     <title>NyPyme</title>
     <!-- stylesheets -->
@@ -55,7 +56,18 @@
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="{{ route('deal.create') }}">Realizar Transação</a></li>
-                                        </ul>                                        
+                                            <li><a href="/deal/createbyGoal">Realizar Transação por Evento</a></li>
+                                       </ul>                                        
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('prizes.index') }}" >
+                                            Prêmios 
+                                        </a>                                     
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('customers.index') }}" >
+                                            Participantes 
+                                        </a>                                     
                                     </li>
                             </li>
                             <li class="dropdown">
