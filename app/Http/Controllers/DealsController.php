@@ -174,7 +174,7 @@ class DealsController extends Controller
 
     protected function debit(){
         $prizes = DB::table('prizes')->where('cnpj',Auth::user()->cnpj)->get();
-        return view('deals.debit', ['prizes' => $prizes]);
+        return view('deals.transacao_def_debito', ['prizes' => $prizes]);
     }
 
     protected function storeDebit(Request $request){
