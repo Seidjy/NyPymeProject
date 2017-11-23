@@ -36,13 +36,14 @@ class GoalsController extends Controller
     
     //store
     protected function store(Request $request)
-    {$cnpj = Auth::user()->cnpj;
+    {
+        $cnpj = Auth::user()->cnpj;
         $name = $request["name"];
 
         $id = md5("$name$cnpj");
         $goal = Goal::create([
             'id' => $id,
-            'name' => $request['name'],
+            'name' => $name,
             'cnpj' => Auth::user()->cnpj,
             'idRuleToAchieve' => $request['idRuleToAchieve'],
             'idRuleToRestrict' => $request['idRuleToRestrict'],
@@ -52,7 +53,7 @@ class GoalsController extends Controller
         $customers = DB::table('customers')->where('cnpj',Auth::user()->cnpj)->get();
         
         foreach ($customers as $customer) {
-           $idCustomerGoal = md5("$cnpj$goal->id$customer->id");
+           $idCustomerGoal = md5("$id$customer->id");
             DB::table('customer_goals')->insert([
                 'id' => $idCustomerGoal,
                 'idGoals' => $id,
