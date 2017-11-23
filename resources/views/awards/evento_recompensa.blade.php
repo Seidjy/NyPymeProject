@@ -9,7 +9,7 @@
             <label>Nome da Recompensa</label>
             <input name="name" type="text" class="form-control" id="" required="required">
                 @foreach ($awards as $award)
-                    <input name="idTypeAward" type="text" class="form-control" id="" required="required" value="$award->id">
+                    <input name="idTypeAward" type="hidden" class="form-control" id="" required="required" value="$award->id">
                 @endforeach
             <label>Quantidade</label>
             <input name="amount" min="1" type="number" class="form-control" id="" required="required">
