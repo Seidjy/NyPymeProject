@@ -8,8 +8,7 @@
         <div class="form-group form-contact">
             <label>Nome da Recompensa</label>
             <input name="name" type="text" class="form-control" id="" required="required">
-            <label>Tipo de Prêmio</label>
-            <select name="idTypeAward" id="input" class="form-control" required="required">
+            <select name="idTypeAward" id="input" class="form-control" required="required" type="hidden">
                 @foreach ($awards as $award)
                     <option value="{{ $award->id}}">{{ $award->name}}</option>
                 @endforeach
