@@ -8,7 +8,7 @@
         <div class="form-group form-contact">
             <label for="email" class="col-md-4 control-label">Email</label>
 
-            <input id="email" type="email" class="form-control" name="email" required autofocus>
+            <input id="email" type="email" class="form-control" name="email" autofocus>
             @if ($errors->has('email'))
                 <span class="help-block">
                     <strong>{{ $errors->first('email') }}</strong>
@@ -18,7 +18,7 @@
 
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
             <label for="password" class="col-md-4 control-label">Senha</label>
-            <input id="password" type="password" class="form-control" name="password" required>
+            <input id="password" type="password" class="form-control" name="password" >
 
             @if ($errors->has('password'))
                 <span class="help-block">
@@ -39,6 +39,10 @@
             <button type="submit" class="btn btn-primary btn-contact btn-block">
                 Login
             </button>
+
+            <a class="btn btn-link" href="{{ route('password.request') }}">
+                Esqueceu sua senha?
+            </a>
         </div>
     </form>
 

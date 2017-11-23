@@ -11,5 +11,4 @@
 	  		</span>{{ $cliente->cpf }}</li>
 		</ul>
 @endforeach
-		<a href="/deal/debit" class="btn btn-primary btn-contact btn-block">Premiar</a>
 @endsection

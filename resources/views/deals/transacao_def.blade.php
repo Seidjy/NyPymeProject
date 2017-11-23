@@ -7,9 +7,9 @@
     	<input type="hidden" name="_token" value="{{ csrf_token() }}" >
         <div class="form-group form-contact">
         	<label>CPF do Participante</label>
-            <input name="cpf" type="text" class="form-control" id="" placeholder="CPF Cliente" required="required">
+            <input name="cpf" type="text" class="form-control" id="" required="required">
             <label>Valor da Compra</label>
-            <input name="amount" type="number" class="form-control" id="" placeholder="Compra" required="required">
+            <input name="amount" type="number" min="1" class="form-control" id="" required="required">
         </div>
         <button type="submit" class="btn btn-primary btn-contact btn-block">Confirmar</button>
     </form>

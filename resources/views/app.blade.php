@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
     
     <title>NyPyme</title>
     <!-- stylesheets -->
@@ -13,7 +12,6 @@
     <link rel="stylesheet" href="/css/fonts/css/font-awesome.min.css">
     <!-- Main Stylesheet -->
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    
 </head>
 <body>
     
@@ -44,11 +42,11 @@
                                             Conquistas <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="{{ route('achieve.create') }}">Cadastrar Regras para Conquistar</a></li>
-                                            <li><a href="{{ route('restricts.create') }}">Cadastrar Regras para Limitar</a></li>
-                                            <li><a href="{{ route('awards.create') }}">Cadastrar Regras para Premiar</a></li>
-                                            <li><a href="{{ route('goals.index') }}">Lista de Conquistas</a></li>
-                                            <li><a href="{{ route('goals.create') }}">Cadastrar Conquista</a></li>
+                                            <li><a href="{{ route('achieve.create') }}">Cadastrar Regras para Pontuação</a></li>
+                                            <li><a href="{{ route('restricts.create') }}">Definir a Limitação para uso da Pontuação</a></li>
+                                            <li><a href="{{ route('awards.create') }}">Definir Recompensa</a></li>
+                                            <li><a href="{{ route('goals.index') }}">Lista de Conquistas de Pontuação</a></li>
+                                            <li><a href="{{ route('goals.create') }}">Cadastrar Conquistas de Pontuação</a></li>
                                         </ul>                                        
                                     </li>
                                     <li>
@@ -56,21 +54,9 @@
                                             Transações <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/deal/createbyGoal">Realizar Transação por Evento</a></li>
-                                            <li><a href="{{ route('deal.create') }}">Realizar Transação Por Valor</a></li>
-                                       </ul>                                        
+                                            <li><a href="{{ route('deal.create') }}">Realizar Transação</a></li>
+                                        </ul>                                        
                                     </li>
-                                    <li>
-                                        <a href="{{ route('prizes.index') }}" >
-                                            Prêmios 
-                                        </a>                                     
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('customers.index') }}" >
-                                            Participantes 
-                                        </a>                                     
-                                    </li>
-
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

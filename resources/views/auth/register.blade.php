@@ -9,7 +9,7 @@
 
     <div class="form-group form-contact{{ $errors->has('name') ? ' has-error' : '' }}">
         <label for="name" class="col-md-4 control-label">Nome</label>
-            <input  type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+            <input  type="text" class="form-control" name="name" value="{{ old('name') }}" autofocus>
 
             @if ($errors->has('name'))
                 <span class="help-block">
@@ -19,8 +19,8 @@
     </div>
 
     <div class="form-group form-contact{{ $errors->has('email') ? ' has-error' : '' }}">
-        <label for="cnpj" class="col-md-4 control-label">CNPJ</label>
-        <input  type="number" maxlength="14" class="form-control" name="cnpj" value="{{ old('cnpj') }}" required>
+        <label for="email" class="col-md-4 control-label">CNPJ</label>
+        <input  type="text" maxlength="14" class="form-control" name="cnpj" value="{{ old('cnpj') }}" >
         @if ($errors->has('email'))
             <span class="help-block">
                 <strong>{{ $errors->first('cnpj') }}</strong>
@@ -30,7 +30,7 @@
 
     <div class="form-group form-contact{{ $errors->has('email') ? ' has-error' : '' }}">
         <label for="email" class="col-md-4 control-label">E-Mail</label>
-        <input  type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+        <input  type="email" class="form-control" name="email" value="{{ old('email') }}" >
         @if ($errors->has('email'))
             <span class="help-block">
                 <strong>{{ $errors->first('email') }}</strong>
@@ -41,7 +41,7 @@
     <div class="form-group form-contact{{ $errors->has('password') ? ' has-error' : '' }}">
         <label for="password" class="col-md-4 control-label">Senha</label>
 
-        <input  type="password" class="form-control" name="password" required>
+        <input  type="password" class="form-control" name="password">
         @if ($errors->has('password'))
             <span class="help-block">
                 <strong>{{ $errors->first('password') }}</strong>
@@ -51,7 +51,7 @@
 
     <div class="form-group form-contact">
         <label for="password-confirm" class="col-md-4 control-label">Confirmar Senha</label>
-            <input  type="password" class="form-control" name="password_confirmation" required>
+            <input  type="password" class="form-control" name="password_confirmation" >
     </div>
     <button type="submit" class="btn btn-primary btn-contact btn-block">Registrar</button>
 </form>
