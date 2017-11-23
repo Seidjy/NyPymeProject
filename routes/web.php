@@ -18,7 +18,7 @@ Route::get('/deal/createbyvalue', function () {
         return view('deals/transacao_def');
     });
 Route::get('/deal/createbygoal', function () {
-        return view('deals/transacao_def');
+        return view('deals/transacao_def_by_goal');
     });
 /*
 Route::get('/goals', function () {
