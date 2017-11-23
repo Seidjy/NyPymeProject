@@ -58,14 +58,19 @@
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="/deal/createbyGoal">Realizar Transação por Evento</a></li>
                                             <li><a href="{{ route('deal.create') }}">Realizar Transação Por Valor</a></li>
-                                            <li><a href="/deal/createbyGoal">Premiação</a></li>
-                                        </ul>                                        
+                                       </ul>                                        
                                     </li>
                                     <li>
                                         <a href="{{ route('prizes.index') }}" >
                                             Prêmios 
                                         </a>                                     
                                     </li>
+                                    <li>
+                                        <a href="{{ route('customers.index') }}" >
+                                            Participantes 
+                                        </a>                                     
+                                    </li>
+
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

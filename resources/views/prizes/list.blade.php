@@ -13,4 +13,5 @@
 		</ul>
 @endforeach
 	    <a href="{{ route('prizes.create') }}" class="btn btn-primary btn-contact btn-block">+</a>
+	    <a href="/deal/debit" class="btn btn-primary btn-contact btn-block">Premiar</a>
 @endsection
