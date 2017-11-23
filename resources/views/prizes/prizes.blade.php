@@ -8,7 +8,6 @@
         <div class="form-group form-contact">
             <label>Nome</label>
             <input name="name" type="text" class="form-control" required="required">
-            <label>Tipo de prêmio</label>
             <label>Preço em pontos</label>
             <input name="price" type="number" class="form-control" required="required">
         </div>
