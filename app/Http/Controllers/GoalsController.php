@@ -55,7 +55,7 @@ class GoalsController extends Controller
            $idCustomerGoal = md5("$cnpj$goal->id$customer->id");
             DB::table('customer_goals')->insert([
                 'id' => $idCustomerGoal,
-                'idGoals' => $goal->id,
+                'idGoals' => $id,
                 'idCustomers' => $customer->id,
                 'cnpj' => $cnpj,
                 'amountRestrict' => 0,
