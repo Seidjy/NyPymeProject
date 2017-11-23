@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
-use App\Goal;
+use App\Prize;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class GoalsController extends Controller
+class PrizesController extends Controller
 {
     //index
     protected function index()
