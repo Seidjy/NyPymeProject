@@ -8,9 +8,8 @@
 @foreach ($prizes as $prize)
 	    <ul class="list-group margem">
 	  		<li class="list-group-item"><span class="badge even">
-	  		</span>{{ $prize->price }}</li>
+	  			{{ $prize->name }} Pontos
 	  		</span>{{ $prize->name }}</li>
-
 		</ul>
 @endforeach
 	    <a href="{{ route('prizes.create') }}" class="btn btn-primary btn-contact btn-block">+</a>
