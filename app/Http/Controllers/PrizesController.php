@@ -27,7 +27,9 @@ class GoalsController extends Controller
     //store
     protected function store(Request $request)
     {
-        $id = md5("$request['cnpj']"+"$request['name']");
+        $name = $request['name'];
+        $cnpj = Auth::user()->cnpj;
+        $id = md5("$cpf$cnpj");
         $prize = Prize::create([
             'id' => $id,
             'name' => $request['name'],

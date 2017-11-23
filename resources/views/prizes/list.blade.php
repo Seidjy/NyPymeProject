@@ -12,5 +12,5 @@
 	  		</span>{{ $prize->name }}</li>
 		</ul>
 @endforeach
-	    <a href="{{ route('goals.create') }}" class="btn btn-primary btn-contact btn-block">+</a>
+	    <a href="{{ route('prizes.create') }}" class="btn btn-primary btn-contact btn-block">+</a>
 @endsection

@@ -57,6 +57,11 @@
                                             <li><a href="{{ route('deal.create') }}">Realizar Transação</a></li>
                                         </ul>                                        
                                     </li>
+                                    <li>
+                                        <a href="{{ route('prize.create') }}" >
+                                            Prêmios 
+                                        </a>                                     
+                                    </li>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
