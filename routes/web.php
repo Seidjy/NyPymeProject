@@ -21,7 +21,7 @@ Route::get('/deal/createbyGoal', function () {
         return view('deals/transacao_def_by_goal');
     });
 
-Route::get('/deal/storebyGoal', 'DealsController@storebyGoal');
+Route::post('/deal/storebyGoal', 'DealsController@storebyGoal');
 /*
 Route::get('/goals', function () {
     return view('evento_list');
