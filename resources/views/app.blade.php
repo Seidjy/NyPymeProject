@@ -56,7 +56,7 @@
                                             Transações <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="/deal/createbygoal">Realizar Transação por Evento</a></li>
+                                            <li><a href="/deal/createbyGoal">Realizar Transação por Evento</a></li>
                                             <li><a href="{{ route('deal.create') }}">Realizar Transação</a></li>
                                         </ul>                                        
                                     </li>
