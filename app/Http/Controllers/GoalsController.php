@@ -62,8 +62,7 @@ class GoalsController extends Controller
                 'amountStored' => 0,
                 'created_at' => '2015-01-01',
                 'updated_at' => '2015-01-01',
-            ]
-            );
+            ]);
         }
 
         $goals = DB::table('goals')->where('cnpj',Auth::user()->cnpj)->get();
