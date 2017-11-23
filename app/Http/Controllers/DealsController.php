@@ -155,12 +155,12 @@ class DealsController extends Controller
             'idCustomer' => $customer->id,
             'cnpj' => Auth::user()->cnpj,
             'idTypeTransactions' => 1,
-            'idGoals' => $data['idGoals'],
-            'updated_at' => $data->input('updated_at'),
-            'created_at' => $data->input('created_at'),
+            'idGoals' => $request['idGoals'],
+            'updated_at' => $request->input('updated_at'),
+            'created_at' => $request->input('created_at'),
         ]);
 
-        $goal = DB::table('goals')->where('id', $data['idGoals'])->first();
+        $goal = DB::table('goals')->where('id', $request['idGoals'])->first();
         $award = DB::table('rules_to_awards')->where('id', $goal->idRuleToAward)->first();
 
         $customerPoints += $award->amount;
