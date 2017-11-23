@@ -17,9 +17,7 @@ Route::get('/', function () {
 Route::get('/deal/createbyvalue', function () {
         return view('deals/transacao_def');
     });
-Route::get('/deal/createbyGoal', function () {
-        return view('deals/transacao_def_by_goal');
-    });
+Route::get('/deal/createbyGoal', 'DealsController@createbyGoal');
 
 Route::post('/deal/storebyGoal', 'DealsController@storebyGoal');
 /*
