@@ -22,5 +22,9 @@ class Deal extends Model
     {
         return $this->hasOne('App\User');
     }
+    public function prize()
+    {
+        return $this->hasOne('App\Prize');
+    }
 }
  ?>

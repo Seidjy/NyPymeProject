@@ -39,6 +39,6 @@ class GoalsController extends Controller
 
 
         $prizes = DB::table('prizes')->where('cnpj',Auth::user()->cnpj)->get();
-        return view('prizes.evento_list', ['prizes' => $prizes]);
+        return view('prizes.list', ['prizes' => $prizes]);
     }
 }
