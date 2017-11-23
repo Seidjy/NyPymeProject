@@ -143,7 +143,7 @@ class DealsController extends Controller
 
     protected function createbyGoal()
     {
-        $goals = DB::table('goals')->where(['cnpj',Auth::user()->cnpj])->get();
+        $goals = DB::table('goals')->where('cnpj',Auth::user()->cnpj)->get();
         return view('deals.transacao_def_by_goal', ['goals' => $goals]);
     }
 
