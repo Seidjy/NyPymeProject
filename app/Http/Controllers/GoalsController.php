@@ -60,7 +60,7 @@ class GoalsController extends Controller
                 'cnpj' => $cnpj,
                 'amountRestrict' => 0,
                 'amountStored' => 0,
-                'created_at' => strtotime('01-01-2015 00:00:00'),
+                'created_at' => '2015-01-01',
                 'updated_at' => strtotime('01-01-2015 00:00:00'),
             ]
             );
