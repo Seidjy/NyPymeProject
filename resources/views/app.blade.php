@@ -58,7 +58,7 @@
                                         </ul>                                        
                                     </li>
                                     <li>
-                                        <a href="{{ route('prize.create') }}" >
+                                        <a href="{{ route('prizes.list') }}" >
                                             Prêmios 
                                         </a>                                     
                                     </li>
