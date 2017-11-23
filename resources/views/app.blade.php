@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     
     <title>NyPyme</title>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <!-- stylesheets -->
     <link rel="stylesheet" href="/css/boots/bootstrap.min.css">
     <!-- Google Font  -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
     <!-- Font Icons -->
     <link rel="stylesheet" href="/css/fonts/css/font-awesome.min.css">
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
 </head>
 <body>
     
