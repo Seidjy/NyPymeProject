@@ -180,6 +180,14 @@ class DealsController extends Controller
     protected function storeDebit(Request $request){
         $customer = $this->storeCustomer($request);
         $customerPoints = $customer->points;
+
+        $prize = DB::table('prizes')->where('id', $request['idPrize'])->first();
+        $customerPoints -= $prize->price;
+
+        if ($customerPoints < 0) {
+           return redirect()->route('customers.index');
+        }
+
         $deal = Deal::create([
             'idCustomer' => $customer->id,
             'cnpj' => Auth::user()->cnpj,
@@ -188,13 +196,6 @@ class DealsController extends Controller
             'updated_at' => $request->input('updated_at'),
             'created_at' => $request->input('created_at'),
         ]);
-
-        $prize = DB::table('prizes')->where('id', $request['idPrize'])->first();
-        $customerPoints -= $prize->price;
-
-        if ($customerPoints < 0) {
-           return redirect()->route('customers.index');
-        }
 
         DB::table('customers')
             ->where('id', $customer->id)
