@@ -61,7 +61,7 @@ class GoalsController extends Controller
                 'amountRestrict' => 0,
                 'amountStored' => 0,
                 'created_at' => '2015-01-01',
-                'updated_at' => '2015-01-01'),
+                'updated_at' => '2015-01-01',
             ]
             );
         }
