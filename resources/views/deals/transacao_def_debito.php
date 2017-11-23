@@ -10,8 +10,8 @@
             <input name="cpf" type="text" class="form-control" id="" placeholder="CPF Cliente" required="required">
             <label>Prêmio</label>
             <select name="idPrize" id="input" class="form-control" required="required">
-                @foreach ($awards as $award)
-                    <option value="{{ $award->id}}">{{ $award->name}}</option>
+                @foreach ($prizes as $prize)
+                    <option value="{{ $prize->id}}">{{ $prize->name}} R$ {{ $prize->price}}</option>
                 @endforeach
             </select>
         </div>

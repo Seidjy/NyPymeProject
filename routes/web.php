@@ -20,6 +20,12 @@ Route::get('/deal/createbyvalue', function () {
 Route::get('/deal/createbyGoal', 'DealsController@createbyGoal');
 
 Route::post('/deal/storebyGoal', 'DealsController@storebyGoal');
+
+Route::get('/deal/debit', 'DealsController@debit');
+
+Route::post('/deal/storebyGoal', 'DealsController@storeDebit');
+
+
 /*
 Route::get('/goals', function () {
     return view('evento_list');

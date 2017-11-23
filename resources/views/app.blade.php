@@ -57,7 +57,8 @@
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="/deal/createbyGoal">Realizar Transação por Evento</a></li>
-                                            <li><a href="{{ route('deal.create') }}">Realizar Transação</a></li>
+                                            <li><a href="{{ route('deal.create') }}">Realizar Transação Por Valor</a></li>
+                                            <li><a href="/deal/createbyGoal">Premiação</a></li>
                                         </ul>                                        
                                     </li>
                                     <li>

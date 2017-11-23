@@ -173,7 +173,8 @@ class DealsController extends Controller
     }
 
     protected function debit(){
-        return view('deals.debit');
+        $prizes = DB::table('prizes')->where('cnpj',Auth::user()->cnpj)->get();
+        return view('deals.debit', ['prizes' => $prizes]);
     }
 
     protected function storeDebit(Request $request){
@@ -183,12 +184,12 @@ class DealsController extends Controller
             'idCustomer' => $customer->id,
             'cnpj' => Auth::user()->cnpj,
             'idTypeTransactions' => 2,
-            'idPrize' => $data['idPrize'],
-            'updated_at' => $data->input('updated_at'),
-            'created_at' => $data->input('created_at'),
+            'idPrize' => $request['idPrize'],
+            'updated_at' => $request->input('updated_at'),
+            'created_at' => $request->input('created_at'),
         ]);
 
-        $prize = DB::table('prizes')->where('id', $data['idPrize'])->first();
+        $prize = DB::table('prizes')->where('id', $request['idPrize'])->first();
         $customerPoints -= $prize->price;
 
         if ($customerPoints < 0) {
