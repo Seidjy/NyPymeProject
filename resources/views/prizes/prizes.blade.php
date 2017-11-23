@@ -9,7 +9,7 @@
             <label>Nome</label>
             <input name="name" type="text" class="form-control" required="required">
             <label>Preço em pontos</label>
-            <input name="price" type="number" class="form-control" required="required">
+            <input name="price" type="text" pattern="[0-9]*" class="form-control" required="required">
         </div>
         <button type="submit" class="btn btn-primary btn-contact btn-block">Confirmar</button>
     </form>
