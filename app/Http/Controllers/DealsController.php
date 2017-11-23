@@ -56,53 +56,55 @@ class DealsController extends Controller
                 
                 $restriction = $lastDate->diff($todays);
                 $days = $restriction->format('%I');
-                //var_dump($days);
+
                 if ($days >= $ruleToRestrict->amount) {
                     $idRuleToAchieve = $goal->idRuleToAchieve;
+
                     $achieve = DB::table('rules_to_achieves')->where('id', $idRuleToAchieve)->first();
-                    var_dump($achieve);
-                    if ($achieve->gather) {
-                        if (($data->input('amount') + $customerGoal->amountStored) >= $achieve->amount) {
-                            $customerGoalsAmountRestrict = $customerGoal->amountRestrict + 1;
-                            $awards = DB::table('rules_to_awards')
-                            ->where('id', $goal->idRuleToAward)
-                            ->first();
+                    $idTypeToAchieve = $achieve->idTypeToAchieve;
+                    if ($idTypeToAchieve == 1) {
+                        if ($achieve->gather) {
+                            if (($data->input('amount') + $customerGoal->amountStored) >= $achieve->amount) {
+                                $customerGoalsAmountRestrict = $customerGoal->amountRestrict + 1;
+                                $awards = DB::table('rules_to_awards')
+                                ->where('id', $goal->idRuleToAward)
+                                ->first();
 
-                            $customerPoints = $customerPoints + $awards->amount;
+                                $customerPoints = $customerPoints + $awards->amount;
 
-                            DB::table('customers')
-                            ->where('id', $customer->id)
-                            ->update(['points' => $customerPoints]);
-                        }else{
-                            $customerGoalsAmountStored = $data->input('amount');
-                            $todays = $lastDate;
-                        }
-                        DB::table('customer_goals')
-                            ->where('id', "$customerGoal->id")
-                            ->update(['amountRestrict' => $customerGoalsAmountRestrict,
-                                    'amountStored' => $customerGoalsAmountStored,
-                                    'updated_at' => $todays,
-                            ]);
-                    }else{
-                        if ($data->input('amount') >= $achieve->amount) {
-                            $awards = DB::table('rules_to_awards')
-                            ->where('id', $goal->idRuleToAward)
-                            ->first();
-                            $customerPoints = $customerPoints + $awards->amount;
-                            $customer = DB::table('customers')
-                            ->where('cpf', $cpf)
-                            ->update(['points' =>  $customerPoints]);
-
-                            $customerGoalsAmountRestrict = $customerGoal->amountRestrict + 1;
+                                DB::table('customers')
+                                ->where('id', $customer->id)
+                                ->update(['points' => $customerPoints]);
+                            }else{
+                                $customerGoalsAmountStored = $data->input('amount');
+                                $todays = $lastDate;
+                            }
                             DB::table('customer_goals')
-                            ->where('id', "$customerGoal->id")
-                            ->update(['amountRestrict' => $customerGoalsAmountRestrict,
-                                'updated_at' => $todays,
-                            ]);
+                                ->where('id', "$customerGoal->id")
+                                ->update(['amountRestrict' => $customerGoalsAmountRestrict,
+                                        'amountStored' => $customerGoalsAmountStored,
+                                        'updated_at' => $todays,
+                                ]);
+                        }else{
+                            if ($data->input('amount') >= $achieve->amount) {
+                                $awards = DB::table('rules_to_awards')
+                                ->where('id', $goal->idRuleToAward)
+                                ->first();
+                                $customerPoints = $customerPoints + $awards->amount;
+                                $customer = DB::table('customers')
+                                ->where('cpf', $cpf)
+                                ->update(['points' =>  $customerPoints]);
+
+                                $customerGoalsAmountRestrict = $customerGoal->amountRestrict + 1;
+                                DB::table('customer_goals')
+                                ->where('id', "$customerGoal->id")
+                                ->update(['amountRestrict' => $customerGoalsAmountRestrict,
+                                    'updated_at' => $todays,
+                                ]);
+                            }
                         }
                     }
                 }
-            //}           
         }
         $customers = DB::table('customers')->where('cnpj',Auth::user()->cnpj)->get();
         return redirect()->route('customers.index');
@@ -165,6 +167,8 @@ class DealsController extends Controller
         DB::table('customers')
             ->where('id', $customer->id)
             ->update(['points' => $customerPoints]);
+
+        return redirect()->route('customers.index');
     }
 
     protected function debit(){
@@ -186,9 +190,15 @@ class DealsController extends Controller
         $prize = DB::table('prizes')->where('id', $data['idPrize'])->first();
         $customerPoints -= $prize->price;
 
+        if ($customerPoints < 0) {
+           return redirect()->route('customers.index');
+        }
+
         DB::table('customers')
             ->where('id', $customer->id)
             ->update(['points' => $customerPoints]);
+
+        return redirect()->route('customers.index');
 
     }
 
