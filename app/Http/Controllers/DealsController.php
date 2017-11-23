@@ -188,10 +188,12 @@ class DealsController extends Controller
            return redirect()->route('customers.index');
         }
 
+        $typeTransaction = DB::table('type_transactions')->where('name', 'Débito')->first();
+
         $deal = Deal::create([
             'idCustomer' => $customer->id,
             'cnpj' => Auth::user()->cnpj,
-            'idTypeTransactions' => 2,
+            'idTypeTransactions' => $typeTransaction->id,
             'idPrize' => $request['idPrize'],
             'updated_at' => $request->input('updated_at'),
             'created_at' => $request->input('created_at'),
