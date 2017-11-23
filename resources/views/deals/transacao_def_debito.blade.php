@@ -3,7 +3,7 @@
 @section('conteudo')
     <h2 class="titulo">Debitar</h2>
 
-    <form action="/deal/storebyGoal" method="POST" role="form" class="fformularios">
+    <form action="/deal/storeDebit" method="POST" role="form" class="fformularios">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" >
         <div class="form-group form-contact">
             <label>CPF do Participante</label>

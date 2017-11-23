@@ -23,7 +23,7 @@ Route::post('/deal/storebyGoal', 'DealsController@storebyGoal');
 
 Route::get('/deal/debit', 'DealsController@debit');
 
-Route::post('/deal/storebyGoal', 'DealsController@storeDebit');
+Route::post('/deal/storeDebit', 'DealsController@storeDebit');
 
 
 /*
