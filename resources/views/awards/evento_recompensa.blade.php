@@ -8,11 +8,9 @@
         <div class="form-group form-contact">
             <label>Nome da Recompensa</label>
             <input name="name" type="text" class="form-control" id="" required="required">
-            <select name="idTypeAward" id="input" class="form-control" required="required" type="hidden">
                 @foreach ($awards as $award)
-                    <option value="{{ $award->id}}">{{ $award->name}}</option>
+                    <input name="idTypeAward" type="text" class="form-control" id="" required="required" value="$award->id">
                 @endforeach
-            </select>
             <label>Quantidade</label>
             <input name="amount" min="1" type="number" class="form-control" id="" required="required">
         </div>

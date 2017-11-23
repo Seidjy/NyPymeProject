@@ -8,6 +8,7 @@
         <div class="form-group form-contact">
         <label>Nome</label>
         	<input type="text" class="form-control" name="name"required="required">
+            <label>Limitar por</label>
         	<select id="input" name="idTypeRestrict" class="form-control" required="required" placeholder="Definir Limitação">
         		@foreach ($restricts as $restrict)
 				    <option value="{{ $restrict->id}}">{{ $restrict->name}}</option>
