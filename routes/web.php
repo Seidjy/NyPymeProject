@@ -43,7 +43,7 @@ Route::resource('awards','RulesToAwardsController');
 Route::resource('restricts','RulesToRestrictsController');
 
 Route::resource('customers','CustomerController');
-Route::resource('prizes', 'PrizesController')
+Route::resource('prizes', 'PrizesController');
 
 //Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
