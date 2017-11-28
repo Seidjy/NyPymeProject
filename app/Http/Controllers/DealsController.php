@@ -170,10 +170,10 @@ class DealsController extends Controller
             'created_at' => $request->input('created_at'),
         ]);
 
-        $customerGoals = DB::table('customer_goals')->where([['idCustomers', $customer->id],['idGoals', $request['idGoals'],]])->get();
+        $customerGoals = DB::table('customer_goals')->where([['idCustomers', $customer->id],['idGoals', $request['idGoals'],['cnpj', Auth::user()->cnpj],]])->first();
 
         
-        if ($this->goalsTimeRestriction($request['idGoals'], $customerGoals)) {
+        if ($this->goalsTimeRestriction($request['idGoals']), $customerGoals) {
             $award = DB::table('rules_to_awards')->where('id', $goal->idRuleToAward)->first();
 
             $customerPoints += $award->amount;
