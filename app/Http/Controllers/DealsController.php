@@ -46,18 +46,8 @@ class DealsController extends Controller
             $customerGoalsAmountRestrict = $customerGoal->amountRestrict;
             $customerGoalsAmountStored = 0;
             $goal = DB::table('goals')->where('id', $customerGoal->idGoals)->first();
-         //   foreach ($goals as $goal) {
-                $idRuleToRestrict = $goal->idRuleToRestrict;
-                $ruleToRestrict = DB::table('rules_to_restricts')->where('id', $idRuleToRestrict)->first();
 
-                $lastDate = new DateTime(@"$customerGoal->updated_at");
-
-                $todays = new DateTime(@"$_SERVER->REQUEST_TIME");
-                
-                $restriction = $lastDate->diff($todays);
-                $days = $restriction->format('%I');
-
-                if ($days >= $ruleToRestrict->amount) {
+                if (goalsTimeRestriction($goal->id)) {
                     $idRuleToAchieve = $goal->idRuleToAchieve;
 
                     $achieve = DB::table('rules_to_achieves')->where('id', $idRuleToAchieve)->first();
@@ -133,6 +123,24 @@ class DealsController extends Controller
         
     }
 
+    protected function goalsTimeRestriction($id){
+        $goal = DB::table('goals')->where('id', $id)->first();
+        $idRuleToRestrict = $goal->idRuleToRestrict;
+        $ruleToRestrict = DB::table('rules_to_restricts')->where('id', $idRuleToRestrict)->first();
+
+        $lastDate = new DateTime(@"$customerGoal->updated_at");
+
+        $todays = new DateTime(@"$_SERVER->REQUEST_TIME");
+                
+        $restriction = $lastDate->diff($todays);
+        $days = $restriction->format('%I');
+        if ($days >= $ruleToRestrict->amount) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     //criar por valor
     protected function create()
     {
@@ -146,7 +154,7 @@ class DealsController extends Controller
         $goals = DB::table('goals')->where('cnpj',Auth::user()->cnpj)->get();
         return view('deals.transacao_def_by_goal', ['goals' => $goals]);
     }
-
+   /** ARRUMAR **/
     protected function storeByGoal(Request $request){
         $customer = $this->storeCustomer($request);
         $customerPoints = $customer->points;
@@ -160,14 +168,18 @@ class DealsController extends Controller
             'created_at' => $request->input('created_at'),
         ]);
 
-        $goal = DB::table('goals')->where('id', $request['idGoals'])->first();
-        $award = DB::table('rules_to_awards')->where('id', $goal->idRuleToAward)->first();
+        
+        if (goalsTimeRestriction($request['idGoals'])) {
+            $award = DB::table('rules_to_awards')->where('id', $goal->idRuleToAward)->first();
 
-        $customerPoints += $award->amount;
+            $customerPoints += $award->amount;
 
-        DB::table('customers')
-            ->where('id', $customer->id)
-            ->update(['points' => $customerPoints]);
+            DB::table('customers')
+                ->where('id', $customer->id)
+                ->update(['points' => $customerPoints]);
+        }
+
+        
 
         return redirect()->route('customers.index');
     }
