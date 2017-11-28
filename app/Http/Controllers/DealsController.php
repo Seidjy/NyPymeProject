@@ -170,6 +170,7 @@ class DealsController extends Controller
         ]);
 
         $customerGoals = DB::table('customer_goals')->where([['idCustomers', $customer->id],['idGoals', $request['idGoals'],['cnpj', Auth::user()->cnpj],]])->first();
+        $goal = DB::table('goals')->where('id', $request['idGoals'])->first();
 
         
         if ($this->goalsTimeRestriction($request['idGoals'],$customerGoals)) {
