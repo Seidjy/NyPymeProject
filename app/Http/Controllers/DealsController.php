@@ -181,8 +181,9 @@ class DealsController extends Controller
             DB::table('customers')
                 ->where('id', $customer->id)
                 ->update(['points' => $customerPoints]);
+            $todays = new DateTime(@"$_SERVER->REQUEST_TIME");
             DB::table('customer_goals')
-                                ->where('id', "$customerGoal->id")
+                                ->where('id', "$customerGoals->id")
                                 ->update(['amountRestrict' => $customerGoals->amountRestrict++,
                                         'updated_at' => $todays,
                                 ]);
