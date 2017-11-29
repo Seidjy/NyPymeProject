@@ -39,6 +39,7 @@ class DealsController extends Controller
             'created_at' => $data->input('created_at'),
         ]);
 
+        $todays = new DateTime(@"$_SERVER->REQUEST_TIME");
 
         $customerGoals = DB::table('customer_goals')->where('idCustomers', $customer->id)->get();
 
