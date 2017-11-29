@@ -35,7 +35,7 @@ Segue abaixo as datas importante do desenvolvimento:
 |:-----:|-----------|
 | 13/08/2017    | Início do planejamento.   |
 | 27/09/2017    | Início do desenvolvimento da plataforma.   |
-| 23/10/2017    | 23/10/2017	Realização do plano de teste   |
+| 23/10/2017    |	Realização do plano de teste   |
 | 24/10/2017	  | Entrega do MVP1.  |
 | 25/10/2017	  | Correções do MVP1.  |
 | 02/11/2017	  | Início do desenvolvimento do MVP2.  |
