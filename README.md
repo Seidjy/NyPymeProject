@@ -54,11 +54,11 @@ Segue abaixo as datas importante do desenvolvimento:
 
 | Tecnologias   | Descrição |
 |:-------------:|-----------|
-|Front-end|	HTML, CSS, JavaScript|
-|Back-end	|PHP, JavaScript|
-|Frameworks|	Laravel, Bootstrap|
-|IDE	|Sublime|
-|Servidor|	Heroku|
+| Front-end |	HTML, CSS, JavaScript |
+| Back-end	| PHP, JavaScript  |
+| Frameworks  |	Laravel, Bootstrap  |
+| IDE	| Sublime  |
+| Servidor |	Heroku  |
 
 
 ## Procedimento e alteração de configuração do ambiente
@@ -70,8 +70,8 @@ Nessa liberação foram contemplados os seguintes itens:
 
 | Código    | Título    | Tarefa    | Situação  |
 |:---------:|-----------|-----------|:---------:|
-|1|	Cadastro de Conquistas|	Possibilitar o usuário configurar e cadastrar uma conquista.|	Concluido |
-|2|	Cadastro de participantes|	Possibilitar a realização o cadastro ao realizar uma transação	| Concluido|
-|3|	Premiação|	Mostrar ao usuário uma lista de prêmios, e permite premiar o participante.|	Concluido|
-|4|	Transações:  Débito e Crédito|	Permite o recebimento e uso dos pontos pelo participante.	|Concluido|
+| 1 |	Cadastro de Conquistas|	Possibilitar o usuário configurar e cadastrar uma conquista.|	Concluido |
+| 2 |	Cadastro de participantes |	Possibilitar a realização o cadastro ao realizar uma transação	| Concluido |
+| 3 |	Premiação |	Mostrar ao usuário uma lista de prêmios, e permite premiar o participante.|	Concluido |
+| 4 |	Transações:  Débito e Crédito |	Permite o recebimento e uso dos pontos pelo participante.	| Concluido  |
 
