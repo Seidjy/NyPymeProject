@@ -128,24 +128,24 @@ class DealsController extends Controller
         $idRuleToRestrict = $goal->idRuleToRestrict;
         $ruleToRestrict = DB::table('rules_to_restricts')->where('id', $idRuleToRestrict)->first();
 
-        $typeRestriction = DB::table('type_restricts')->where('id',$ruleToRestrict->idTypeRestrict)->first();
+        $typeRestriction = DB::table('type_restricts')->where('id', $ruleToRestrict->idTypeRestrict)->first();
 
-        if ($typeRestriction->name == "Dias") {
-            $lastDate = new DateTime(@"$customerGoals->updated_at");
-
-            $todays = new DateTime(@"$_SERVER->REQUEST_TIME");
-                    
-            $restriction = $lastDate->diff($todays);
-            $days = $restriction->format('%d');
-
-            if ($days >= $ruleToRestrict->amount) {
-                return true;
-            }else{
-                return false;
-            }
-        }else{
+        if ($typeRestriction->name != "Dias") {
             return true;
-        }        
+        }
+
+        $lastDate = new DateTime(@"$customerGoals->updated_at");
+
+        $todays = new DateTime(@"$_SERVER->REQUEST_TIME");
+                
+        $restriction = $lastDate->diff($todays);
+        $days = $restriction->format('%a');
+
+        if ($days >= $ruleToRestrict->amount) {
+            return true;
+        }else{
+            return false;
+        }
     }
 
     //criar por valor
