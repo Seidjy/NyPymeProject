@@ -51,8 +51,8 @@ class CustomerController extends Controller
                 'cnpj' => $cnpj,
                 'amountRestrict' => 0,
                 'amountStored' => 0,
-                'created_at' => '2015-01-01',
-                'updated_at' => '2015-01-01',
+                'created_at' => '01-01-2000',
+                'updated_at' => '01-01-2000',
             ]
             );
         }
