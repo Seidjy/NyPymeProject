@@ -2,19 +2,22 @@
 
 version 1.2
 
-Aplicação NyPyme Online
+[Aplicação NyPyme Online]
 
+(http://nypyme.herokuapp.com)
+
+### Integrantes
 Integrantes
 6º semestre BSI
 *	Nathália Adriele de Lima RA: 547621
 *	Samuel Seidjy Padovan RA: 548596
 * Tamara da Silva Zoner RA: 438367
 
-Introdução
+## Introdução
 Este documento provê uma visão geral da versão da plataforma NyPyme que está sendo liberada. Aqui descreveremos as funcionalidades da plataforma. 
 O NyPyme é uma plataforma com soluções de gamificação, que fideliza o cliente, utilizando de gamificação para pontuar clientes, e o premia-lo de acordo com sua pontuação.  
 
-Nota de Liberação
+## Nota de Liberação
 *	Transações – Débito e Crédito
 *	Cadastro de Clientes
 *	Metas
@@ -22,10 +25,15 @@ Nota de Liberação
 *	Regras de Conversão de Valor
 * Prêmiação
 
-Datas Importantes
+## Problemas conhecidos e limitações
+* Dificuldade no uso.
+* Não há tutorial.
+
+## Datas Importantes
 Segue abaixo as datas importante do desenvolvimento:
-|Data|	Evento|
-|13/08/2017|	Início do planejamento.|
+| Data  | Evento    |
+|:-----:|-----------|
+| 13/08/2017  |	Início do planejamento. |
 |27/09/2017|	Início do desenvolvimento da plataforma.|
 |23/10/2017|	Realização do plano de teste| 
 |24/10/2017|	Entrega do MVP1.|
@@ -37,19 +45,30 @@ Segue abaixo as datas importante do desenvolvimento:
 |29/11/2017|	Reinício do sistema.|
 |29/11/2017|	Versão Final do projeto.|
 
-Compatibilidade
-|Requisitos|	Ferramentas|
+
+## Compatibilidade
+
+| Requisitos    | Ferramentas   |
+|---------------|---------------|
 |Navegadores|	Google Chrome, Mozilla Firefox, Microsoft Edge e Internet Explorer 9+.|
 |Sistemas Operacionais|	UNIX, Windows, Android e IOS.|
-|Tecnologias|	Descrição|
+
+| Tecnologias   | Descrição |
+|:-------------:|-----------|
 |Front-end|	HTML, CSS, JavaScript|
 |Back-end	|PHP, JavaScript|
 |Frameworks|	Laravel, Bootstrap|
 |IDE	|Sublime|
 |Servidor|	Heroku|
-Procedimento e alteração de configuração do ambiente
+
+
+## Procedimento e alteração de configuração do ambiente
+
 Para alteração no ambiente é preciso ter uma conta colaboradora no repositório do GitHub, e realizar a sincronização após alteração que é realizado o Deploy.
-Atividades realizadas no período
+
+## Atividades realizadas no período
 Nessa liberação foram contemplados os seguintes itens:
-|Código	|Título	|Tarefa|	Situação|
+
+| Código    | Título    | Tarefa    | Situação  |
+|:---------:|-----------|-----------|:---------:|
 |1|	Cadastro de Conquistas|	Possibilitar o usuário configurar e cadastrar uma conquista.|	Concluido
