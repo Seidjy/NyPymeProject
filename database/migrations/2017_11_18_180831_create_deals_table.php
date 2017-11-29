@@ -20,7 +20,7 @@ class CreateDealsTable extends Migration
             $table->integer('idTypeTransactions')->unsigned();
             $table->string('idGoals',32)->nullable($value = true);
             $table->string('idPrize',32)->nullable($value = true);
-            $table->integer('amount')->nullable($value = true);
+            $table->decimal('amount',10,2)->nullable($value = true);
             $table->timestamps();
             $table->foreign('idCustomer')->references('id')->on('customers');
             $table->foreign('idGoals')->references('id')->on('goals');

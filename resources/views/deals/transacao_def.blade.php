@@ -9,7 +9,7 @@
         	<label>CPF do Participante</label>
             <input name="cpf" type="text" class="form-control" id="" required="required">
             <label>Valor da Compra</label>
-            <input name="amount" type="number" min="1" class="form-control" id="" required="required">
+            <input name="amount" type="number" step="any" min="0.01" class="form-control" id="" required="required">
         </div>
         <button type="submit" class="btn btn-primary btn-contact btn-block">Confirmar</button>
     </form>
