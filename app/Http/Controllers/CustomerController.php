@@ -8,11 +8,23 @@ use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     protected function index()
     {
-        $members = DB::table('customers')->where('cnpj',Auth::user()->cnpj)->get();
-        return view('customers.index',['clientes' => $members]);
+        
+        return view('customers.index',['clientes' => getCustomers()]);
     }
+
+    protected function getCustomers(){
+        $members = DB::table('customers')->where('cnpj',Auth::user()->cnpj)->get();
+        return $members;
+    }
+
+
     //create
     protected function create()
     {

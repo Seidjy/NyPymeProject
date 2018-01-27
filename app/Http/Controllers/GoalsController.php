@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class GoalsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     //index
     protected function index()
     {
@@ -37,6 +42,12 @@ class GoalsController extends Controller
     //store
     protected function store(Request $request)
     {
+        
+
+        return view('goals.evento_list', ['goals' => storeGoal($request)]);
+    }
+
+    protected function storeGoal(Request $request){
         $cnpj = Auth::user()->cnpj;
         $name = $request["name"];
 
@@ -68,7 +79,7 @@ class GoalsController extends Controller
 
         $goals = DB::table('goals')->where('cnpj',Auth::user()->cnpj)->get();
 
-        return view('goals.evento_list', ['goals' => $goals]);
+        return $goals;
     }
     
     //show

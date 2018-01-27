@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class RulesToRestrictsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     //index
 	protected function index()
     {

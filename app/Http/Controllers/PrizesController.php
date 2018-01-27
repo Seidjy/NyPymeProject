@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class PrizesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     //index
     protected function index()
     {
