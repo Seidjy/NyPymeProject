@@ -25,7 +25,7 @@ class DealsController extends Controller
 
     protected function store(Request $data)
     {
-        storeDeals($data);
+        $this->storeDeals($data);
         
         return redirect()->route('customers.index');
     }
@@ -111,6 +111,7 @@ class DealsController extends Controller
             }
         }
         $customers = DB::table('customers')->where('cnpj',Auth::user()->cnpj)->get();
+        return json_encode($customers);
     }
 
     protected function storeCustomer(Request $data){

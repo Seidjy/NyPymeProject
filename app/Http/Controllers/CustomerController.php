@@ -12,17 +12,19 @@ class CustomerController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     protected function index()
     {
         
-        return view('customers.index',['clientes' => getCustomers()]);
+        return view('customers.index',['clientes' => json_decode($this->getCustomers())]);
     }
 
-    protected function getCustomers(){
-        $members = DB::table('customers')->where('cnpj',Auth::user()->cnpj)->get();
-        return $members;
+    public function getCustomers(){
+        $customers = Customer::where('cnpj', Auth::user()->cnpj)->get();
+        return json_encode($customers);
     }
+
+
 
 
     //create

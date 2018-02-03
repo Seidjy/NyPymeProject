@@ -44,7 +44,7 @@ class GoalsController extends Controller
     {
         
 
-        return view('goals.evento_list', ['goals' => storeGoal($request)]);
+        return view('goals.evento_list', ['goals' => $this->storeGoal($request)]);
     }
 
     protected function storeGoal(Request $request){
