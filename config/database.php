@@ -2,10 +2,10 @@
 
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-//    $host = $url["host"];
-//    $username = $url["user"];
-//    $password = $url["pass"];
-//    $database = substr($url["path"], 1);
+    $host = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $database = substr($url["path"], 1);
 
 return [
 
@@ -50,11 +50,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => "localhost",
+            'host' => "$host",
             'port' => env('DB_PORT', '3306'),
-            'database' => "nypyme",
-            'username' => "root",
-            'password' => "123456",
+            'database' => "$database",
+            'username' => "$username",
+            'password' => "$password",
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
