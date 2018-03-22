@@ -10,22 +10,41 @@ class CustomerController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+       $this->middleware('auth', ['except' => 'getCustomerAPI']);
     }
 
     protected function index()
     {
-        
-        return view('customers.index',['clientes' => json_decode($this->getCustomers())]);
+        $customers = DB::table('customers')->where('cnpj', Auth::user()->cnpj)->get();
+        return view('customers.index',['clientes' => $customers]);
     }
 
     public function getCustomers(){
-        $customers = Customer::where('cnpj', Auth::user()->cnpj)->get();
-        return json_encode($customers);
+        $customers = DB::table('customers')->where('cnpj', Auth::user()->cnpj)->get();
+        return response()->json(["participantes" => $customers]);
     }
 
 
+    public function getCustomer(Request $request){
+        $customer = DB::table('customers')->where('cpf', $request->input('cpf'))->get();
+        return $customer;
+    }
 
+    public function getCustomerAPI(Request $request){
+        $customer = $this->getCustomer($request);
+
+        $counter = 0;
+        foreach ($customer as $client ) {
+            $response[$counter] =  [
+                "nome" => $client->name,
+                "cpf" => $client->cpf,
+                "cnpj" => $client->cnpj,
+                "pontos" => $client->points
+            ];
+        }
+        
+        return response()->json(["participante" => $response]);
+    }
 
     //create
     protected function create()

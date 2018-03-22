@@ -34,6 +34,22 @@ class DealsController extends Controller
 
     }
 
+    protected function storeDelasAPI(Request $request){
+        $customer = $this->storeDeals($request);
+
+        $counter = 0;
+        foreach ($customer as $client ) {
+            $response[$counter] =  [
+                "nome" => $client->name,
+                "cpf" => $client->cpf,
+                "cnpj" => $client->cnpj,
+                "pontos" => $client->points
+            ];
+        }
+
+        return response()->json($response[0]);
+    }
+
     protected function storeDeals(Request $data){
         $customer = $this->storeCustomer($data);
 
@@ -110,8 +126,8 @@ class DealsController extends Controller
                 }
             }
         }
-        $customers = DB::table('customers')->where('cnpj',Auth::user()->cnpj)->get();
-        return json_encode($customers);
+        $customers = DB::table('customers')->where(['cnpj' => Auth::user()->cnpj, 'cpf' => $cpf])->get();
+        return $customers;
     }
 
     protected function storeCustomer(Request $data){

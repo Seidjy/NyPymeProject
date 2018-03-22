@@ -30,11 +30,17 @@ class RulesToAchievesController extends Controller
     //store
     protected function store(Request $request)
     {
+        $this->storeInDatabase($request);
+        return view('home');
+	}
+
+    protected function storeInDatabase(Request $request)
+    {
         $cnpj = Auth::user()->cnpj;
         $name = $request["name"];
 
         $id = md5("$name$cnpj");
-        RulesToAchieve::create([
+        $rule =  RulesToAchieve::create([
             'id' => $id,
             'cnpj' => $cnpj,
             'name' => $name,
@@ -42,8 +48,10 @@ class RulesToAchievesController extends Controller
             'amount' => $request['amount'],
             'gather' => $request['gather'],
         ]);
-        return view('home');
-	}
+
+        return $rule;
+    }
+
     //show
     protected function show($id)
     {

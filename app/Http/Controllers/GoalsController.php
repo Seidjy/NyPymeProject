@@ -42,9 +42,14 @@ class GoalsController extends Controller
     //store
     protected function store(Request $request)
     {
-        
 
         return view('goals.evento_list', ['goals' => $this->storeGoal($request)]);
+    }
+
+    protected function getGoals(){
+        $goals = DB::table('goals')->where('cnpj',Auth::user()->cnpj)->get();
+
+        return response()->json(['goals' => $goals]);
     }
 
     protected function storeGoal(Request $request){
