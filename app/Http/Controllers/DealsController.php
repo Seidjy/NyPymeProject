@@ -43,7 +43,8 @@ class DealsController extends Controller
                 "nome" => $client->name,
                 "cpf" => $client->cpf,
                 "cnpj" => $client->cnpj,
-                "pontos" => $client->points
+                "pontos" => $client->points,
+                "pontosRecebidos" => 
             ];
         }
 
@@ -57,7 +58,9 @@ class DealsController extends Controller
 
         $cnpj = Auth::user()->cnpj;
 
-        $customerPoints = $customer->points;        
+        $customerPoints = $customer->points;
+
+        $customerPointsNow = $customerPoints;
 
         $deal = Deal::create([
             'idCustomer' => $customer->id,
@@ -127,6 +130,7 @@ class DealsController extends Controller
             }
         }
         $customers = DB::table('customers')->where(['cnpj' => Auth::user()->cnpj, 'cpf' => $cpf])->get();
+        $customers['atual'] = $customerPointsNow;
         return $customers;
     }
 
@@ -220,8 +224,6 @@ class DealsController extends Controller
                                         'updated_at' => $todays,
                                 ]);
         }
-
-        
 
         return redirect()->route('customers.index');
     }
