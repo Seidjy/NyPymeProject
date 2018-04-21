@@ -38,9 +38,9 @@ class DealsController extends Controller
         $customer = $this->storeDeals($request);
 
         $counter = 0;
-        foreach ($customer as $client ) {
+        foreach ($customer['customer'] as $client ) {
             $response[$counter] =  [
-                //"nome" => $client->name,
+                "nome" => $client->name,
                 "cpf" => $client->cpf,
                 "cnpj" => $client->cnpj,
                 "pontos" => $client->points,
@@ -129,7 +129,7 @@ class DealsController extends Controller
                 }
             }
         }
-        $customers = DB::table('customers')->where(['cnpj' => Auth::user()->cnpj, 'cpf' => $cpf])->get();
+        $customers['customer'] = DB::table('customers')->where(['cnpj' => Auth::user()->cnpj, 'cpf' => $cpf])->get();
         $customers['atual'] = $customerPointsNow;
         return $customers;
     }
