@@ -20,7 +20,7 @@ class CustomerController extends Controller
     }
 
     public function getCustomerFromStore(Request $request){
-        $customers = DB::table('customers')->where('cnpj' => Auth::user()->cnpj, 'cpf' => $request->input('cpf'))->get();
+        $customers = DB::table('customers')->where(['cnpj' => Auth::user()->cnpj, 'cpf' => $request->input('cpf')])->get();
 
          $counter = 0;
         foreach ($customers as $client ) {
