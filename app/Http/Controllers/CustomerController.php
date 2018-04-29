@@ -32,7 +32,7 @@ class CustomerController extends Controller
             ];
         }
 
-        return response()->json(["participante" => $response]);
+        return response()->json($response[0]);
     }
 
 
