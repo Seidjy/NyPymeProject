@@ -22,7 +22,8 @@ class CustomerController extends Controller
     public function getCustomerFromStore(Request $request){
         $customers = DB::table('customers')->where(['cnpj' => Auth::user()->cnpj, 'cpf' => $request->input('cpf')])->get();
 
-         $counter = 0;
+        $response;
+        $counter = 0;
         foreach ($customers as $client ) {
             $response[$counter] =  [
                 "nome" => $client->name,
@@ -31,7 +32,7 @@ class CustomerController extends Controller
                 "pontos" => $client->points
             ];
         }
-
+        
         return response()->json($response[0]);
     }
 
