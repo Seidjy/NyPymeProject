@@ -19,7 +19,7 @@ class CustomerController extends Controller
         return view('customers.index',['clientes' => $customers]);
     }
 
-    public function getCustomers(){
+    public function getCustomerFromStore(){
         $customers = DB::table('customers')->where('cnpj', Auth::user()->cnpj)->get();
         return response()->json(["participantes" => $customers]);
     }
