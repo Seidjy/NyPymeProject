@@ -70,7 +70,7 @@ class CustomerController extends Controller
             $counter++;
         }
         
-        return response()->json(["participante" => $response]);
+        return response()->json($response);
     }
 
     protected function getStoreName($cnpj){
