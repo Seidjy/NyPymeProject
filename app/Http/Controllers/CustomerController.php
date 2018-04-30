@@ -74,9 +74,13 @@ class CustomerController extends Controller
     }
 
     protected function getStoreName($cnpj){
-        $user = DB::table('users')->where('cnpj', $cnpj)->get();
+        $users = DB::table('users')->where('cnpj', $cnpj)->get();
+        $name = "";
+        foreach ($users as $user ) {
+            $name = $user->name;
+        }
 
-        $name = $user->name;
+        
 
         return $name;
     }
