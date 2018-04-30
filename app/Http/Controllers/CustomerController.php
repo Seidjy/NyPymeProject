@@ -53,6 +53,13 @@ class CustomerController extends Controller
         $customer = $this->getCustomer($request);
 
         $counter = 0;
+        $response[$counter] =  [
+                "nome" => "",
+                "cpf" => "",
+                "cnpj" => "",
+                "pontos" => ""
+            ];
+
         foreach ($customer as $client ) {
             $response[$counter] =  [
                 "nome" => $client->name,
@@ -60,6 +67,7 @@ class CustomerController extends Controller
                 "cnpj" => $client->cnpj,
                 "pontos" => $client->points
             ];
+            $counter++;
         }
         
         return response()->json(["participante" => $response]);
