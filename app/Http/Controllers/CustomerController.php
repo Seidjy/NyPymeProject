@@ -62,7 +62,7 @@ class CustomerController extends Controller
 
         foreach ($customer as $client ) {
             $response[$counter] =  [
-                "nome" => $client->name,
+                "nome" => $this->getStoreName($client->cnpj),
                 "cpf" => $client->cpf,
                 "cnpj" => $client->cnpj,
                 "pontos" => $client->points
@@ -71,6 +71,14 @@ class CustomerController extends Controller
         }
         
         return response()->json(["participante" => $response]);
+    }
+
+    protected function getStoreName($cnpj){
+        $user = DB::table('users')->where('cnpj', $cnpj)->get();
+
+        $name = $user->name;
+
+        return $name;
     }
 
     //create
