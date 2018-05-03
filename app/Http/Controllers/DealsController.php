@@ -233,7 +233,26 @@ class DealsController extends Controller
         return view('deals.transacao_def_debito', ['prizes' => $prizes]);
     }
 
-    protected function storeDebit(Request $request){
+    protected function storeDebitAPI(Request $request){
+        $customer = $this->makeDebit($request);
+
+
+        $counter = 0;
+        foreach ($customer['customer'] as $client ) {
+            $response[$counter] =  [
+                "nome" => $client->name,
+                "cpf" => $client->cpf,
+                "cnpj" => $client->cnpj,
+                "pontos" => $client->points,
+                "pontosRecebidos" => $customer['atual']
+            ];
+        }
+
+        return response()->json($response[0]);
+
+    }
+
+    protected function makeDebit(Request $request){
         $customer = $this->storeCustomer($request);
         $customerPoints = $customer->points;
 
@@ -255,12 +274,17 @@ class DealsController extends Controller
             'created_at' => $request->input('created_at'),
         ]);
 
-        DB::table('customers')
+        $customer = DB::table('customers')
             ->where('id', $customer->id)
             ->update(['points' => $customerPoints]);
 
-        return redirect()->route('customers.index');
+        return $customer;
+    }
 
+    protected function storeDebit(Request $request){
+        $this->makeDebit($request);
+
+        return redirect()->route('customers.index');
     }
 
     protected function add()
