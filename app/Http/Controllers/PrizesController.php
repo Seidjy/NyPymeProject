@@ -23,6 +23,27 @@ class PrizesController extends Controller
         return view('prizes.list', ['prizes' => $prizes]);
     }
 
+    protected function getPrizes(Request $request){
+        $prizes = DB::table('prizes')->where('cnpj',Auth::user()->cnpj)->get();
+
+        $counter = 0;
+        $response[$counter] =  [
+                "id" => "",
+                "nome" => "",
+                "preço" => ""
+            ];
+        foreach ($prizes as $prize ) {
+            $response[$counter] =  [
+                "id" => $prize->id,
+                "nome" => $prize->name,
+                "preço" => $prize->price,
+            ];
+            $counter++;
+        }
+
+        return response()->json($response[0]);
+    }
+
     //create
     
     protected function create(){
