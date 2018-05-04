@@ -27,7 +27,6 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
-    public function 
 
     public function login(Request $request)
     {
@@ -53,6 +52,7 @@ class LoginController extends Controller
 
         return $this->sendFailedLoginResponse($request);
     }
+    
 
     /**
      * Create a new controller instance.
