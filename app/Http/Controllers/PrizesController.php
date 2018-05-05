@@ -41,7 +41,7 @@ class PrizesController extends Controller
             $counter++;
         }
 
-        return response()->json([$response] );
+        return response()->json(["prêmios" => $response] );
     }
 
     //create
