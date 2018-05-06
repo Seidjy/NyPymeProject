@@ -27,21 +27,17 @@ class PrizesController extends Controller
         $prizes = DB::table('prizes')->where('cnpj',Auth::user()->cnpj)->get();
 
         $counter = 0;
-        $response[$counter] =  [
-                "id" => "",
-                "nome" => "",
-                "preço" => ""
-            ];
+
+        
         foreach ($prizes as $prize ) {
-            $response[$counter] =  [
+            $response[] = [
                 "id" => $prize->id,
                 "nome" => $prize->name,
                 "preço" => $prize->price,
             ];
-            $counter++;
         }
 
-        return response()->json(["prêmios" => $response] );
+        return response()->json($response);
     }
 
     //create
