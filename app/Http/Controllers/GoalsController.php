@@ -56,9 +56,8 @@ class GoalsController extends Controller
         $cnpj = Auth::user()->cnpj;
         $name = $request["name"];
 
-        $id = md5("$name$cnpj");
+
         $goal = Goal::create([
-            'id' => $id,
             'name' => $name,
             'cnpj' => Auth::user()->cnpj,
             'idRuleToAchieve' => $request['idRuleToAchieve'],
@@ -69,10 +68,8 @@ class GoalsController extends Controller
         $customers = DB::table('customers')->where('cnpj',Auth::user()->cnpj)->get();
         
         foreach ($customers as $customer) {
-           $idCustomerGoal = md5("$id$customer->id");
             DB::table('customer_goals')->insert([
-                'id' => $idCustomerGoal,
-                'idGoals' => $id,
+                'idGoals' => $goal->id,
                 'idCustomers' => $customer->id,
                 'cnpj' => $cnpj,
                 'amountRestrict' => 0,

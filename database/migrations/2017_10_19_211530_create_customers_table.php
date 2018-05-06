@@ -14,14 +14,13 @@ class CreateCustomersTable extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->string('id',32);
+            $table->increments('id');
             $table->string('cnpj', 14);
             $table->string('name',50);
             $table->string('cpf',15);
             $table->integer('points');
             $table->timestamps();
             $table->foreign('cnpj')->references('cnpj')->on('users');
-            $table->primary('id');
         });
     }
 

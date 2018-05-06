@@ -14,13 +14,12 @@ class CreatePrizesTable extends Migration
     public function up()
     {
         Schema::create('prizes', function (Blueprint $table) {
-            $table->string('id',32);
+            $table->increments('id');
             $table->string('cnpj', 14);
             $table->string('name',30);
             $table->integer('price');
             $table->timestamps();
             $table->foreign('cnpj')->references('cnpj')->on('users');
-            $table->primary('id');
         });
     }
 

@@ -39,9 +39,7 @@ class RulesToAchievesController extends Controller
         $cnpj = Auth::user()->cnpj;
         $name = $request["name"];
 
-        $id = md5("$name$cnpj");
         $rule =  RulesToAchieve::create([
-            'id' => $id,
             'cnpj' => $cnpj,
             'name' => $name,
             'idTypeAchieve' => $request['idTypeAchieve'],

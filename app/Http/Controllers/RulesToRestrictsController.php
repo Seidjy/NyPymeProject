@@ -32,9 +32,7 @@ class RulesToRestrictsController extends Controller
     {
             $cnpj = Auth::user()->cnpj;
             $name = $request["name"];
-            $id = md5("$name$cnpj");  
 	        RulesToRestrict::create([
-                'id' => $id,
                 'cnpj' => $cnpj,
                 'name' => $name,
                 'idTypeRestrict' => $request['idTypeRestrict'],

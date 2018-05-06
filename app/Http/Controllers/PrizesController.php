@@ -56,9 +56,8 @@ class PrizesController extends Controller
     {
         $name = $request['name'];
         $cnpj = Auth::user()->cnpj;
-        $id = md5("$name$cnpj");
         $prize = Prize::create([
-            'id' => $id,
+            
             'name' => $request['name'],
             'cnpj' => Auth::user()->cnpj,
             'price' => $request['price'],

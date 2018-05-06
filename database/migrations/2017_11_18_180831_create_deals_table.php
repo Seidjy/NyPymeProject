@@ -16,10 +16,10 @@ class CreateDealsTable extends Migration
         Schema::create('deals', function (Blueprint $table) {
             $table->increments('id');
             $table->string('cnpj', 14);
-            $table->string('idCustomer', 32);
+            $table->integer('idCustomer')->unsigned();
             $table->integer('idTypeTransactions')->unsigned();
-            $table->string('idGoals',32)->nullable($value = true);
-            $table->string('idPrize',32)->nullable($value = true);
+            $table->integer('idGoals')->nullable()->unsigned();
+            $table->integer('idPrize')->nullable()->unsigned();
             $table->decimal('amount',10,2)->nullable($value = true);
             $table->timestamps();
             $table->foreign('idCustomer')->references('id')->on('customers');

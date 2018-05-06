@@ -14,7 +14,7 @@ class CreateRulesToAwardsTable extends Migration
     public function up()
     {
         Schema::create('rules_to_awards', function (Blueprint $table) {
-            $table->string('id',32);
+            $table->increments('id');
             $table->string('cnpj', 14);
             $table->string('name',40);
             $table->integer('idTypeAward')->unsigned();
@@ -22,7 +22,6 @@ class CreateRulesToAwardsTable extends Migration
             $table->timestamps();
             $table->foreign('idTypeAward')->references('id')->on('type_awards');
             $table->foreign('cnpj')->references('cnpj')->on('users');
-            $table->primary('id');
         });
     }
 

@@ -14,7 +14,7 @@ class CreateRulesToRestrictsTable extends Migration
     public function up()
     {
         Schema::create('rules_to_restricts', function (Blueprint $table) {
-            $table->string('id',32);
+            $table->increments('id');
             $table->string('cnpj', 14);
             $table->string('name',40);
             $table->integer('idTypeRestrict')->unsigned();
@@ -22,7 +22,6 @@ class CreateRulesToRestrictsTable extends Migration
             $table->timestamps();
             $table->foreign('idTypeRestrict')->references('id')->on('type_restricts');
             $table->foreign('cnpj')->references('cnpj')->on('users');
-            $table->primary('id');
         });
     }
 
