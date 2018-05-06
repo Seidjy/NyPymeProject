@@ -98,9 +98,7 @@ class CustomerController extends Controller
 
     public static function addCustomer($cpf, $name){
         $cnpj = Auth::user()->cnpj;
-        $id = md5("$cpf$cnpj");
         $customer = Customer::create([
-            'id' => $id,
             'cpf' => $cpf,
             'name' => "",
             'cnpj' => $cnpj,
@@ -115,9 +113,7 @@ class CustomerController extends Controller
         $goals = DB::table('goals')->where('cnpj',Auth::user()->cnpj)->get();
         
         foreach ($goals as $goal) {
-            $idCustomerGoal = md5("$cnpj$goal->id$customer->id");
             DB::table('customer_goals')->insert([
-                'id' => $idCustomerGoal,
                 'idGoals' => $goal->id,
                 'idCustomers' => $customer->id,
                 'cnpj' => $cnpj,
