@@ -280,7 +280,7 @@ class DealsController extends Controller
 
         $customers = DB::table('customers')->where(['cnpj' => Auth::user()->cnpj, 'cpf' => $cpf])->get();
 
-        return $customer;
+        return $customers;
     }
 
     protected function storeDebit(Request $request){
