@@ -257,10 +257,10 @@ class DealsController extends Controller
         $customerPoints = $customer->points;
 
         $prize = DB::table('prizes')->where('id', $request['idPrize'])->first();
-        $customerPoints -= $prize->price;
+        $customerPoints = $customerPoints - $prize->price;
 
         if ($customerPoints < 0) {
-           return redirect()->route('customers.index');
+           return;
         }
 
         $typeTransaction = DB::table('type_transactions')->where('name', 'Débito')->first();
