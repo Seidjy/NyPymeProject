@@ -85,6 +85,13 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                    <?php if (Auth::user()->role == 1): ?>
+                                        <li>
+                                        <a href="/logs">
+                                            Logs
+                                        </a>
+                                    </li>
+                                    <?php endif ?>
                                 </ul>
                             </li>
                         @endguest

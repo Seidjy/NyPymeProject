@@ -25,6 +25,9 @@ Route::get('/deal/debit', 'DealsController@debit');
 
 Route::post('/deal/storeDebit', 'DealsController@storeDebit');
 
+Route::get('/log', function () {
+        return view('logs/evento_cadastro');
+    });
 
 /*
 Route::get('/goals', function () {
@@ -55,3 +58,5 @@ Route::resource('prizes', 'PrizesController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
