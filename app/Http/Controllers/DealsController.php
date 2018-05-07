@@ -238,13 +238,13 @@ class DealsController extends Controller
 
 
         $counter = 0;
-        foreach ($customer['customer'] as $client ) {
+        foreach ($customer as $client ) {
             $response[$counter] =  [
                 "nome" => $client->name,
                 "cpf" => $client->cpf,
                 "cnpj" => $client->cnpj,
-                "pontos" => $client->points,
-                "pontosRecebidos" => $customer['atual']
+                "pontos" => $client->points
+                //"pontosRecebidos" => $customer['atual']
             ];
         }
 
@@ -277,6 +277,8 @@ class DealsController extends Controller
         $customer = DB::table('customers')
             ->where('id', $customer->id)
             ->update(['points' => $customerPoints]);
+
+        $customers = DB::table('customers')->where(['cnpj' => Auth::user()->cnpj, 'cpf' => $cpf])->get();
 
         return $customer;
     }
