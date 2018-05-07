@@ -240,7 +240,7 @@ class DealsController extends Controller
         $counter = 0;
         foreach ($customer as $client ) {
             $response[$counter] =  [
-               // "nome" => $client->name,
+                "nome" => $client->name,
                 "cpf" => $client->cpf,
                 "cnpj" => $client->cnpj,
                 "pontos" => $client->points
