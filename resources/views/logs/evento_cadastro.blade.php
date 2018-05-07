@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('conteudo')
-    <h2 class="titulo">Sistema de Log</h2>
+    <h2 class="titulo">Log Login</h2>
 
 
 <div class="container">
