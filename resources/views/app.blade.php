@@ -87,8 +87,13 @@
                                     </li>
                                     <?php if (Auth::user()->role == 1): ?>
                                         <li>
-                                        <a href="/log">
+                                        <a href="/log_login">
                                             Log Login
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/log_premiacao">
+                                            Log Premiacao
                                         </a>
                                     </li>
                                     <?php endif ?>

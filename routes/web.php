@@ -25,8 +25,12 @@ Route::get('/deal/debit', 'DealsController@debit');
 
 Route::post('/deal/storeDebit', 'DealsController@storeDebit');
 
-Route::get('/log', function () {
-        return view('logs/evento_cadastro');
+Route::get('/log_login', function () {
+        return view('logs/log_login');
+    });
+
+Route::get('/log_premiacao', function () {
+        return view('logs/log_premiacao');
     });
 
 /*
