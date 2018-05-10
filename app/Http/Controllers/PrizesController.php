@@ -40,6 +40,23 @@ class PrizesController extends Controller
         return response()->json($response);
     }
 
+    protected function getPrizesForCustomer(Request $request){
+        $prizes = DB::table('prizes')->where('cnpj',$request->cnpj)->get();
+
+        $counter = 0;
+
+        
+        foreach ($prizes as $prize ) {
+            $response[] = [
+                "id" => $prize->id,
+                "nome" => $prize->name,
+                "preço" => $prize->price,
+            ];
+        }
+
+        return response()->json($response);
+    }
+
     //create
     
     protected function create(){

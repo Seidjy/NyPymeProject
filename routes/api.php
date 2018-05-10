@@ -19,7 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware('auth:api')->post('/customers','CustomerController@getCustomerFromStore');
 Route::middleware('auth:api')->post('/debit','DealsController@storeDebitAPI');
+
 Route::post('/customer','CustomerController@getCustomerAPI');
+Route::post('/prizes/store','PrizesController@getPrizesForCustomer');
+
 Route::middleware('auth:api')->post('/deals','DealsController@storeDelasAPI');
 Route::middleware('auth:api')->post('/prizes','PrizesController@getPrizes');
 
