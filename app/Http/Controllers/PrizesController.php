@@ -40,7 +40,7 @@ class PrizesController extends Controller
         return response()->json($response);
     }
 
-    protected function getPrizesForCustomer(Request $request){
+    public function getPrizesForCustomer(Request $request){
         $prizes = DB::table('prizes')->where('cnpj',$request['cnpj'])->get();
 
         $counter = 0;
