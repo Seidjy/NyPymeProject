@@ -21,7 +21,7 @@ Route::middleware('auth:api')->post('/customers','CustomerController@getCustomer
 Route::middleware('auth:api')->post('/debit','DealsController@storeDebitAPI');
 
 Route::post('/customer','CustomerController@getCustomerAPI');
-Route::post('/prizes/store','PrizesController@getPrizesForCustomer');
+Route::post('/prize','PrizesController@getPrizesForCustomer');
 
 Route::middleware('auth:api')->post('/deals','DealsController@storeDelasAPI');
 Route::middleware('auth:api')->post('/prizes','PrizesController@getPrizes');
