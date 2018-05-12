@@ -41,7 +41,7 @@ class PrizesController extends Controller
     }
 
     protected function getPrizesForCustomer(Request $request){
-        $prizes = DB::table('prizes')->where('cnpj',$request['cnpj']->get();
+        $prizes = DB::table('prizes')->where('cnpj',$request['cnpj'])->get();
 
         $counter = 0;
 
