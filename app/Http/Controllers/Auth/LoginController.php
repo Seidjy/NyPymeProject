@@ -18,7 +18,17 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers{
+        validateLogin as validateLogin;
+        hasTooManyLoginAttempts as hasTooManyLoginAttempts;
+        fireLockoutEvent as fireLockoutEvent;
+        sendLockoutResponse as sendLockoutResponse;
+        attemptLogin as attemptLogin;
+        sendLoginResponse as sendLoginResponse;
+        incrementLoginAttempts as incrementLoginAttempts;
+        sendFailedLoginResponse as sendFailedLoginResponse;
+    }
+
 
     /**
      * Where to redirect users after login.
@@ -27,7 +37,7 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
-/*
+
     public function login(Request $request)
     {
         $this->validateLogin($request);
@@ -52,7 +62,7 @@ class LoginController extends Controller
 
         return $this->sendFailedLoginResponse($request);
     }
-    */
+    
 
     /**
      * Create a new controller instance.
