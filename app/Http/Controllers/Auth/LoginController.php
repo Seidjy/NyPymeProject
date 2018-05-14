@@ -18,17 +18,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers{
-        validateLogin as validate;
-        hasTooManyLoginAttempts as hasTooManyAttempts;
-        fireLockoutEvent as fireLockout;
-        sendLockoutResponse as sendLockout;
-        attemptLogin as attempt;
-        sendLoginResponse as sendResponse;
-        incrementLoginAttempts as incrementAttempts;
-        sendFailedLoginResponse as sendFailedResponse;
-    }
-
+    use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
@@ -37,30 +27,32 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
+    protected $authenticatesUsers = new AuthenticatesUsers();
+
 
     public function login(Request $request)
     {
-        $this->validate($request);
+        $this->authenticatesUsers->validateLogin($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
         // the IP address of the client making these requests into this application.
-        if ($this->hasTooManyAttempts($request)) {
-            $this->fireLockout($request);
+        if ($this->authenticatesUsers->hasTooManyLoginAttempts($request)) {
+            $this->authenticatesUsers->fireLockoutEvent($request);
 
-            return $this->sendLockout($request);
+            return $this->authenticatesUsers->sendLockoutResponse($request);
         }
 
-        if ($this->attempt($request)) {
-            return $this->sendResponse($request);
+        if ($this->authenticatesUsers->attemptLogin($request)) {
+            return $this->authenticatesUsers->sendLoginResponse($request);
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
         // to login and redirect the user back to the login form. Of course, when this
         // user surpasses their maximum number of attempts they will get locked out.
-        $this->incrementAttempts($request);
+        $this->authenticatesUsers->incrementLoginAttempts($request);
 
-        return $this->sendFailedResponse($request);
+        return $this->authenticatesUsers->sendFailedLoginResponse($request);
     }
     
 
