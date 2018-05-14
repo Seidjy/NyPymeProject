@@ -27,7 +27,7 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
-    protected $authenticatesUsers = new AuthenticatesUsers();
+    $authenticatesUsers = new AuthenticatesUsers();
 
 
     public function login(Request $request)
