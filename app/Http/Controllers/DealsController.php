@@ -274,7 +274,7 @@ class DealsController extends Controller
             'created_at' => $request->input('created_at'),
         ]);
         
-        $customer = DB::table('customers')
+        DB::table('customers')
             ->where('id', $customer->id)
             ->update(['points' => $customerPoints]);
 
