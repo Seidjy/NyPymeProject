@@ -273,12 +273,12 @@ class DealsController extends Controller
             'updated_at' => $request->input('updated_at'),
             'created_at' => $request->input('created_at'),
         ]);
-        $customers = DB::table('customers')->where(['cnpj' => Auth::user()->cnpj, 'cpf' => $customer->cpf])->get();
+        
         $customer = DB::table('customers')
             ->where('id', $customer->id)
             ->update(['points' => $customerPoints]);
 
-       
+       $customers = DB::table('customers')->where(['cnpj' => Auth::user()->cnpj, 'cpf' => $customer->cpf])->get();
 
         return $customers;
     }
