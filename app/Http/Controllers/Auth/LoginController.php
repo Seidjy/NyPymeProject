@@ -63,6 +63,7 @@ ACtion  = Sucesso
 
         if ($this->attemptLogin($request)) {
             $logLogin[] = ['action' => 'Sucesso'];
+            LogLogin::create($login);
             return $this->sendLoginResponse($request);
         }
 
