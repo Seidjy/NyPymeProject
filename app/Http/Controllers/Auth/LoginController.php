@@ -48,8 +48,6 @@ ACtion  = Sucesso
             'password' => $request->input('password')
         ];
 
-        $
-        $user = $request->
         $this->validateLogin($request);
 
 
@@ -64,6 +62,7 @@ ACtion  = Sucesso
         }
 
         if ($this->attemptLogin($request)) {
+            $logLogin[] = ['action' => 'Sucesso'];
             return $this->sendLoginResponse($request);
         }
 
@@ -72,7 +71,9 @@ ACtion  = Sucesso
         // user surpasses their maximum number of attempts they will get locked out.
         $this->incrementLoginAttempts($request);
 
-        $logLogin[] = ['' => 2]
+        $logLogin[] = ['action' => 'Insucesso'];
+
+        LogLogin::create($login);
 
         return $this->sendFailedLoginResponse($request);
     }
