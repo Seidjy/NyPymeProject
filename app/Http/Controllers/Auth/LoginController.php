@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\LogLogin;
 
 class LoginController extends Controller
 {
@@ -34,11 +35,21 @@ class LoginController extends Controller
 
 /*
 ***LOGIN***
+***********
+ACtion  = Sucesso
+
 */
     public function login(Request $request)
     {
 
-        s
+        $logLogin = [
+            'ip' => $request->ip(),
+            'user' => $this->username(),;
+            'password' => $request->input('password')
+        ];
+
+        $
+        $user = $request->
         $this->validateLogin($request);
 
 
@@ -61,11 +72,13 @@ class LoginController extends Controller
         // user surpasses their maximum number of attempts they will get locked out.
         $this->incrementLoginAttempts($request);
 
+        $logLogin[] = ['' => 2]
+
         return $this->sendFailedLoginResponse($request);
     }
     
     public function saveLoginAttemptData(Request $request){
-        
+
     }
 
     /**
