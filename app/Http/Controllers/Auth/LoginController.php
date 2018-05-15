@@ -31,10 +31,17 @@ class LoginController extends Controller
     protected $redirectTo = '/home';
 
 
+
+/*
+***LOGIN***
+*/
     public function login(Request $request)
     {
 
+        s
         $this->validateLogin($request);
+
+
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
@@ -57,6 +64,9 @@ class LoginController extends Controller
         return $this->sendFailedLoginResponse($request);
     }
     
+    public function saveLoginAttemptData(Request $request){
+        
+    }
 
     /**
      * Create a new controller instance.

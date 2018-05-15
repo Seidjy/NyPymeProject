@@ -15,8 +15,6 @@ class CreateLogPrizesTable extends Migration
     {
         Schema::create('log_prizes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_user_send')->unsigned();
-            $table->integer('id_user_send')->unsigned();
             $table->timestamps();
         });
     }
