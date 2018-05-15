@@ -44,7 +44,7 @@ ACtion  = Sucesso
 
         $logLogin = [
             'ip' => $request->ip(),
-            'user' => $this->username(),;
+            'user' => $this->username(),
             'password' => $request->input('password')
         ];
 
