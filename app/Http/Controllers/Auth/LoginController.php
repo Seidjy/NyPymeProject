@@ -18,7 +18,9 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers{
+        login as loginUser;
+    };
 
     /**
      * Where to redirect users after login.
@@ -27,9 +29,10 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
-/*
+
     public function login(Request $request)
     {
+        
         $this->validateLogin($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
@@ -52,7 +55,7 @@ class LoginController extends Controller
 
         return $this->sendFailedLoginResponse($request);
     }
-    */
+    
 
     /**
      * Create a new controller instance.
