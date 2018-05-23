@@ -80,6 +80,7 @@ ACtion  = Sucesso
     }
 
     public function validateLoginAttempt(Request $request){
+        $attemptsLimit = 5;
         $attempts = LogLogin::where('ip', $request->ip())->orderBy('created_at')->take($attemptsLimit)->get();
         
         $attemptsCounter = 0;
