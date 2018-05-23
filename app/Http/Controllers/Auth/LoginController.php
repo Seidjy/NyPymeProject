@@ -63,7 +63,7 @@ ACtion  = Sucesso
         echo "";
         if ($this->attemptLogin($request)) {
             $logLogin['action'] = 'Sucesso';
-            LogLogin::create($login);
+            LogLogin::create($logLogin);
             //return $this->sendLoginResponse($request);
         }
 
@@ -74,7 +74,7 @@ ACtion  = Sucesso
 
         $logLogin['action'] = 'Insucesso';
 
-        LogLogin::create($login);
+        LogLogin::create($logLogin);
 
         return $this->sendFailedLoginResponse($request);
     }
