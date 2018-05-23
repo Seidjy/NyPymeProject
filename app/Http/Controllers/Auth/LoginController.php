@@ -31,7 +31,7 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
-
+    protected $attemptsLimit = 5;
 
 /*
 ***LOGIN***
@@ -50,21 +50,20 @@ ACtion  = Sucesso
 
         $this->validateLogin($request);
 
-
-
-        // If the class is using the ThrottlesLogins trait, we can automatically throttle
-        // the login attempts for this application. We'll key this by the username and
-        // the IP address of the client making these requests into this application.
-        if ($this->hasTooManyLoginAttempts($request)) {
+        if (!$this->validateLoginAttempt($request)) {
             $this->fireLockoutEvent($request);
 
             return $this->sendLockoutResponse($request);
         }
-
+/*
+        if ($this->hasTooManyLoginAttempts($request)) {
+            
+        }
+*/  
         if ($this->attemptLogin($request)) {
             $logLogin[] = ['action' => 'Sucesso'];
             LogLogin::create($login);
-            return $this->sendLoginResponse($request);
+            //return $this->sendLoginResponse($request);
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
@@ -77,6 +76,24 @@ ACtion  = Sucesso
         LogLogin::create($login);
 
         return $this->sendFailedLoginResponse($request);
+    }
+
+    public function validateLoginAttempt(Request $request){
+        $attempts = LogLogin::where('ip', $request->ip())->orderBy('created_at')->take($attemptsLimit)->get();
+        
+        $attemptsCounter = 0;
+
+        foreach ($attempts as $attempt) {
+            if ($attempt['action'] == "Insucesso") {
+                $attemptsCounter++;
+            }
+        }
+
+        if ($attemptsCounter >= $attemptsLimit) {
+            return false;
+        }
+
+        return true;
     }
     
     public function saveLoginAttemptData(Request $request){
