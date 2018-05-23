@@ -60,8 +60,9 @@ ACtion  = Sucesso
             
         }
 */  
+        echo "";
         if ($this->attemptLogin($request)) {
-            $logLogin[] = ['action' => 'Sucesso'];
+            $logLogin['action'] = 'Sucesso';
             LogLogin::create($login);
             //return $this->sendLoginResponse($request);
         }
@@ -71,7 +72,7 @@ ACtion  = Sucesso
         // user surpasses their maximum number of attempts they will get locked out.
         $this->incrementLoginAttempts($request);
 
-        $logLogin[] = ['action' => 'Insucesso'];
+        $logLogin['action'] = 'Insucesso';
 
         LogLogin::create($login);
 
