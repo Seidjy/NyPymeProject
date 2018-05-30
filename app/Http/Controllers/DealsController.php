@@ -256,31 +256,43 @@ class DealsController extends Controller
         $customer = $this->storeCustomer($request);
         $customerPoints = $customer->points;
 
-        $prize = DB::table('prizes')->where('id', $request['idPrize'])->first();
-        $customerPoints = $customerPoints - $prize->price;
+        $prize = DB::table('prizes')->where(['cnpj' => Auth::user()->cnpj,'id', $request['idPrize'])->first();
 
-        if ($customerPoints < 0) {
-           return;
+        foreach ($priz as $prize) {
+            $customerPoints = $customerPoints - $prize->price;
+
+            if ($customerPoints < 0) {
+               return;
+            }
+
+            $typeTransaction = DB::table('type_transactions')->where('name', 'Débito')->first();
+
+            $deal = Deal::create([
+                'idCustomer' => $customer->id,
+                'cnpj' => Auth::user()->cnpj,
+                'idTypeTransactions' => $typeTransaction->id,
+                'idPrize' => $request['idPrize'],
+                'updated_at' => $request->input('updated_at'),
+                'created_at' => $request->input('created_at'),
+            ]);
+            
+            DB::table('customers')
+                ->where('id', $customer->id)
+                ->update(['points' => $customerPoints]);
+
+           $customers = DB::table('customers')->where(['cnpj' => Auth::user()->cnpj, 'cpf' => $customer->cpf])->get();
+
+            return $customers;      
         }
 
-        $typeTransaction = DB::table('type_transactions')->where('name', 'Débito')->first();
+        return $customers = [
+            "nome" => "",
+            "cpf" => "",
+            "cnpj" => "",
+            "pontos" => ""s
+        ];
 
-        $deal = Deal::create([
-            'idCustomer' => $customer->id,
-            'cnpj' => Auth::user()->cnpj,
-            'idTypeTransactions' => $typeTransaction->id,
-            'idPrize' => $request['idPrize'],
-            'updated_at' => $request->input('updated_at'),
-            'created_at' => $request->input('created_at'),
-        ]);
         
-        DB::table('customers')
-            ->where('id', $customer->id)
-            ->update(['points' => $customerPoints]);
-
-       $customers = DB::table('customers')->where(['cnpj' => Auth::user()->cnpj, 'cpf' => $customer->cpf])->get();
-
-        return $customers;
     }
 
     protected function storeDebit(Request $request){
