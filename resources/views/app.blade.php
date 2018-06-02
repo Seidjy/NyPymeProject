@@ -85,7 +85,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-                                    <?php if (Auth::user()->role == 1): ?>
+                                    <?php if (Auth::user()->role == 2): ?>
                                         <li>
                                         <a href="/log_login">
                                             Log Login
