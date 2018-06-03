@@ -1,6 +1,6 @@
 <?php
 
-$url = parse_url("mysql://b0b65cf3fba634:44429594@us-cdbr-iron-east-05.cleardb.net/heroku_e8082d690dcff6e?reconnect=true");
+$url = parse_url("mysql://vg52vuzbs4bq52h9:vjxd0cuo8wiz1ahc@nuskkyrsgmn5rw8c.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/hk6hzb2aynmml31q");
 
     $host = $url["host"];
     $username = $url["user"];
