@@ -10,6 +10,7 @@
 	  		<li class="list-group-item"><span class="badge even">
 	  			<i class="fa fa-check-circle eventos-list" aria-hidden="true"></i>
 	  		</span>{{ $goal->name }}</li>
+	  		<a href="{{ route('goals.edit') }}">Editar</a>
 		</ul>
 @endforeach
 	    <a href="{{ route('goals.create') }}" class="btn btn-primary btn-contact btn-block">+</a>

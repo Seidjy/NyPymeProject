@@ -85,17 +85,28 @@ class GoalsController extends Controller
     }
     
     //show
-    /*
+    
     protected function show($id)
     {
         $members = Goal::find($id);
         return view('goals.show',compact('members'));
     }
     //edit
-    public function edit($id)
-    {
-        $members = Goal::find($id);
-        return view('goals.edit',compact('members'));
+    public function edit($id){
+        $goal = Goal::find($id);
+
+        $achieves = DB::table('rules_to_achieves')->where('cnpj',Auth::user()->cnpj)->get();
+
+        $restricts = DB::table('rules_to_restricts')->where('cnpj',Auth::user()->cnpj)->get();
+
+        $awards = DB::table('rules_to_awards')->where('cnpj',Auth::user()->cnpj)->get();
+
+        return view('goals.evento_edit',[
+            'awards' => $awards,
+            'achieves' => $achieves,
+            'restricts' => $restricts,
+            'goal' => $goal
+        ]);
     }
 
     //update
@@ -105,7 +116,7 @@ class GoalsController extends Controller
         return redirect()->route('goals.index')
                         ->with('success','goals updated successfully');
     }
-    */
+    
     //destroy
     /*
     protected function destroy($id)
