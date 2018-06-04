@@ -7,7 +7,7 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}" >
         <div class="form-group form-contact">
             <label>Nome da Conquista</label>
-            <input name="name" type="text" class="form-control" id="" required="required" value="$goal->name">
+            <input name="name" type="text" class="form-control" id="" required="required" value="{{$goal->name}}">
             <label>Regra para Conquistar</label>
             <select name="idRuleToAchieve" id="input" class="form-control" required="required">
             	
