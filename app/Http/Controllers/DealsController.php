@@ -289,7 +289,7 @@ class DealsController extends Controller
             "nome" => "",
             "cpf" => "",
             "cnpj" => "",
-            "pontos" => ""s
+            "pontos" => ""
         ];
 
         
