@@ -13,7 +13,7 @@
             	
                 @foreach ($achieves as $achieve)
                 <?php 
-                if $award->id == $goal->idRuleToRestrict {
+                if $achieve->id == $goal->idRuleToRestrict {
                     ?>
                     <option value="{{ $achieve->id}}">{{ $achieve->name}}</option>
                     <?php 
@@ -29,7 +29,7 @@
             <select name="idRuleToRestrict" id="input" class="form-control" required="required">
                 @foreach ($restricts as $restrict)
                 <?php 
-                if $award->id == $goal->idRuleToRestrict {
+                if $restrict->id == $goal->idRuleToRestrict {
                     ?>
                     <option value="{{ $restrict->id}}" selected>{{ $restrict->name}}</option>
                     <?php 
