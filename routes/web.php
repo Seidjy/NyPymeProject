@@ -27,6 +27,8 @@ Route::post('/deal/storeDebit', 'DealsController@storeDebit');
 
 Route::get('/goals/{id}/editar', 'GoalsController@edit');
 
+Route::get('/goals/{id}/update', 'GoalsController@update')
+
 Route::get('/log_login', function () {
         return view('logs/log_login');
     });
