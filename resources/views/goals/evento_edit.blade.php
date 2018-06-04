@@ -3,7 +3,7 @@
 @section('conteudo')
     <h2 class="titulo">Cadastrar Conquista de Pontuação</h2>
 
-    <form action="/goals/{$goal->id}/update" method="POST" role="form" class="fformularios">
+    <form action="/goals/{{$goal->id}/update" method="POST" role="form" class="fformularios">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" >
         <div class="form-group form-contact">
             <label>Nome da Conquista</label>
@@ -57,7 +57,7 @@
             </select>
            
         </div>
-       <button type="submit" class="btn btn-primary btn-contact btn-block">Cadastrar</button>
+       <button type="submit" class="btn btn-primary btn-contact btn-block">Atualizar</button>
         </form>
          
 @endsection
