@@ -256,10 +256,10 @@ class DealsController extends Controller
         $customer = $this->storeCustomer($request);
         $customerPoints = $customer->points;
 
-        $prize = DB::table('prizes')->where(['cnpj' => Auth::user()->cnpj,'id' => $request['idPrize']])->first();
+        $prize = DB::table('prizes')->where(['cnpj' => Auth::user()->cnpj],['id' => $request['idPrize']])->first();
 
-        foreach ($prize as $prize) {
-            $customerPoints = $customerPoints - $prize->price;
+        foreach ($prize as $priz) {
+            $customerPoints = $customerPoints - $priz->price;
 
             if ($customerPoints < 0) {
                return;
