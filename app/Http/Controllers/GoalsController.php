@@ -112,6 +112,8 @@ class GoalsController extends Controller
     //update
     public function update(Request $request, $id)
     {
+        $goal = Goal::find($id);
+
         Goal::find($id)->update($request->all());
         return redirect()->route('goals.index');
     }
