@@ -259,7 +259,7 @@ class DealsController extends Controller
         $prize = DB::table('prizes')->where(['cnpj' => Auth::user()->cnpj,'id' => $request['idPrize']])->first();
 
         foreach ($priz as $prize) {
-            $customerPoints = $customerPoints - $prize->price;
+            $customerPoints = $customerPoints - $priz->price;
 
             if ($customerPoints < 0) {
                return;
