@@ -10,6 +10,7 @@
 	  		<li class="list-group-item"><span class="badge">
 	  			{{ $prize->price }} Pontos
 	  		</span>{{ $prize->name }}</li>
+	  		<a href="/prize/{{$prize->id}}/editar">Editar</a>
 		</ul>
 @endforeach
 	    <a href="{{ route('prizes.create') }}" class="btn btn-primary btn-contact btn-block">+</a>
