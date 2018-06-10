@@ -78,7 +78,7 @@ class PrizesController extends Controller
     //update
        public function update(Request $request, $id)
     {
-        $oldPrize = Prize::find($id);
+        $prize = Prize::find($id);
 
         LogPrize::create([
             'novo_nome' => $request['name'],
