@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use App\Prize;
+use App\LogPrize;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -62,6 +63,34 @@ class PrizesController extends Controller
     protected function create(){
 
         return view('prizes.prizes');
+    }
+
+    //edit
+    public function edit($id)
+    {
+        $prize = Prize::find($id);
+
+       return view('prize.evento_edit',[
+            
+            'prize' => $prize
+        ]);
+    }
+    //update
+       public function update(Request $request, $id)
+    {
+        $oldPrize = Prize::find($id);
+
+        LogPrize::create([
+            'novo_nome' => $request['name'],
+            'antigo_nome' => $prize->name,
+            'novo_preco' => $request['price'],
+            'antigo_preco' => $prize->price,
+            'cnpj' => Auth::user()->cnpj,
+            'price' => $request['price'],
+        ]);
+
+        Prize::find($id)->update($request->all());
+        return redirect()->route('prizes.index');
     }
     
     //store

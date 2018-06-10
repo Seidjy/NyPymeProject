@@ -17,8 +17,8 @@ class CreateLogPrizeTable extends Migration
             $table->increments('id');
             $table->string('novo_nome', 40);
             $table->string('antigo_nome', 40);
-            $table->int('novo_preco');
-            $table->int('antigo_preco');
+            $table->integer('novo_preco');
+            $table->integer('antigo_preco');
             $table->string('usuario', 40);
             $table->string('ip', 40);
             $table->string('action', 40);

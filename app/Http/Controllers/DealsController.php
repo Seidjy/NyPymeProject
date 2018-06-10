@@ -258,7 +258,8 @@ class DealsController extends Controller
 
         $prize = DB::table('prizes')->where([['cnpj' , Auth::user()->cnpj],['id' , $request['idPrize']]])->first();
 
-            $customerPoints = $customerPoints - $prize->price;
+        foreach ($prize as $priz) {
+            $customerPoints = $customerPoints - $priz->price;
 
             if ($customerPoints < 0) {
                return;
@@ -281,7 +282,9 @@ class DealsController extends Controller
 
            $customers = DB::table('customers')->where(['cnpj' => Auth::user()->cnpj, 'cpf' => $customer->cpf])->get();
 
-            return $customers;    
+            return $customers;      
+        }
+
         return $customers = [
             "nome" => "",
             "cpf" => "",
