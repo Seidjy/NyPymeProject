@@ -70,7 +70,7 @@ class PrizesController extends Controller
     {
         $prize = Prize::find($id);
 
-       return view('prizes.evento_edit',[
+       return view('prizes.prizes_edit',[
             
             'prize' => $prize
         ]);
