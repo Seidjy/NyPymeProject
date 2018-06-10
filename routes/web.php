@@ -27,7 +27,7 @@ Route::post('/deal/storeDebit', 'DealsController@storeDebit');
 
 Route::get('/goals/{id}/editar', 'GoalsController@edit');
 
-Route::post('/goals/{id}/update', 'GoalsController@update');]
+Route::post('/goals/{id}/update', 'GoalsController@update');
 
 Route::post('/prize/{id}/update', 'PrizesController@update');
 
