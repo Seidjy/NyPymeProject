@@ -80,7 +80,7 @@ class PrizesController extends Controller
     {
         $prize = Prize::find($id);
 
-        LogPrize::create([
+        $prize = LogPrize::create([
             'novo_nome' => $request['name'],
             'antigo_nome' => $prize->name,
             'novo_preco' => $request['price'],
