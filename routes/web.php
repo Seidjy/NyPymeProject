@@ -35,6 +35,9 @@ Route::get('/prize/{id}/editar', 'PrizesController@edit');
 
 Route::post('/participant/{id}/update', 'CustomerController@update');
 
+Route::get('/participant/{id}/editar', 'CustomerController@edit');
+
+
 
 Route::get('/log/login', 'LogsController@logLogin');
 
