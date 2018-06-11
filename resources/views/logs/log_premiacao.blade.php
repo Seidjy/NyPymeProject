@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('conteudo')
-    <h2 class="titulo">Log Histórico de Premiação</h2> 
+    <h2 class="titulo">Log dos Prêmios</h2>  
 
 <div class="container">
   <div class="table-responsive">
@@ -9,66 +9,34 @@
       <thead>
         <tr>
           <th></th>
+          <th>Usuário</th>
+          <th>IP</th>
+          <th>Ação</th>
           <th>Data</th>
-          <th>Usuário Premiador</th>
-          <th>Prêmios</th>
-          <th>Valor</th>
-          <th>Usuário Premiado</th>
-          <th>Pontuação Antes</th>
-          <th>Pontuação Depois</th>
+          <th>Novo Nome</th>
+          <th>Antigo Nome</th>
+          <th>Novo Preço</th>
+          <th>Antigo Preço</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th>1</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>5</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+        <?php 
+          foreach ($logs as $log) {
+          ?>
+          <tr>
+            <th>{{$log->id}}</th>
+            <td>{{$log->usuario}}</td>
+            <td>{{$log->ip}}</td>
+            <td>{{$log->action}}</td>
+            <td>{{$log->novo_nome}}</td>
+            <td>{{$log->antigo_nome}}</td>
+            <td>{{$log->novo_preco}}</td>
+            <td>{{$log->antigo_preco}}</td>
+          </tr>
+          <?php
+          }
+
+         ?>
       </tbody>
     </table>
     </div>

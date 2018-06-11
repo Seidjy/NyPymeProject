@@ -37,9 +37,8 @@ Route::get('/log_login', function () {
         return view('logs/log_login');
     });
 
-Route::get('/log_premiacao', function () {
-        return view('logs/log_premiacao');
-    });
+
+Route::get('/log/premios', 'LogsController@logPrize');
 
 /*
 Route::get('/goals', function () {
