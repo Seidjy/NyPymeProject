@@ -81,12 +81,12 @@ class PrizesController extends Controller
         $prize = Prize::find($id);
 
         LogPrize::create([
-            'novo_nome' => $request['name'],
+            'novo_nome' => $request->input('name'),
             'antigo_nome' => $prize->name,
-            'novo_preco' => $request['price'],
+            'novo_preco' => $request->input('price'),
             'antigo_preco' => $prize->price,
-            'cnpj' => Auth::user()->cnpj,
-            'price' => $request['price'],
+            'usuario' => Auth::user()->cnpj,
+            'ip' => $request->ip(),
             'action' => "Update"
         ]);
 
