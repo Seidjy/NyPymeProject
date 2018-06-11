@@ -143,9 +143,21 @@ class CustomerController extends Controller
     //update
     public function update(Request $request, $id)
     {
+        $participant = Customer::find($id);
+
+        $prize = LogParticipant::create([
+            'novo_cpf' => $request['name'],
+            'antigo_cpf' => $prize->name,
+            'nova_pontuacao' => $request['price'],
+            'antiga_pontuacao' => $prize->price,
+            'usuario' => Auth::user()->cnpj,
+            'ip' => $request->ip(),
+            'action' => "Update CPF",
+            'created_at' => new DateTime(@"$_SERVER->REQUEST_TIME"),
+        ]);
+
         Customer::find($id)->update($request->all());
-        return redirect()->route('customers.index')
-                        ->with('success','goals updated successfully');
+        return redirect()->route('customer.index');
     }
 
     //destroy
