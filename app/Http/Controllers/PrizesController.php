@@ -87,6 +87,7 @@ class PrizesController extends Controller
             'antigo_preco' => $prize->price,
             'cnpj' => Auth::user()->cnpj,
             'price' => $request['price'],
+            'action' => "Update"
         ]);
 
         Prize::find($id)->update($request->all());
