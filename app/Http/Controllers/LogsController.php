@@ -27,7 +27,7 @@ class LogsController extends Controller
     protected function logLogin(Request $request){
         $logs = DB::table('log_login')->get();
 
-        return view('logs.log_premiacao', ['logs' => $logs]);
+        return view('logs.log_login', ['logs' => $logs]);
     }
 
     public function getPrizesForCustomer(Request $request){
