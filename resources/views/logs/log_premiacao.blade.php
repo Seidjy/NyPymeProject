@@ -28,6 +28,7 @@
             <td>{{$log->usuario}}</td>
             <td>{{$log->ip}}</td>
             <td>{{$log->action}}</td>
+            <td></td>
             <td>{{$log->novo_nome}}</td>
             <td>{{$log->antigo_nome}}</td>
             <td>{{$log->novo_preco}}</td>
