@@ -4,6 +4,7 @@
     <h2 class="titulo">Definir Recompensa</h2>
 
     <form action="/prize/{{$prize->id}}/update" method="POST" role="form" class="fformularios">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" >
        <div class="form-group form-contact">
             <label>Nome</label>
             <input name="name" type="text" class="form-control" required="required" value="{{$prize->name}}">

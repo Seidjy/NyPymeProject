@@ -91,7 +91,7 @@ class PrizesController extends Controller
             'created_at' => new DateTime(@"$_SERVER->REQUEST_TIME"),
         ]);
 
-        Prize::find($id)->update($request->all());
+        $prizes = Prize::find($id)->update($request->all());
         return redirect()->route('prizes.index');
     }
     
