@@ -60,7 +60,6 @@ ACtion  = Sucesso
             
         }
 */  
-        echo "";
         if ($this->attemptLogin($request)) {
             $logLogin['action'] = 'Sucesso';
             LogLogin::create($logLogin);
@@ -81,9 +80,9 @@ ACtion  = Sucesso
 
     public function validateLoginAttempt(Request $request){
         $attemptsLimit = 5;
-        $attempts = LogLogin::where('ip', $request->ip())->orderBy('created_at', 'DESC')->take($attemptsLimit)->get();
+        $attempts = LogLogin::where('ip', $request->ip())->orderBy('created_at', 'desc')->take($attemptsLimit)->get();
         
-        $attemptsCounter = 0;
+        $attemptsCounter = 1;
 
         foreach ($attempts as $attempt) {
             if ($attempt['action'] == "Insucesso") {
@@ -95,7 +94,7 @@ ACtion  = Sucesso
             return false;
         }
 
-        $attempts = LogLogin::where('user', $request['user'])->orderBy('created_at', 'DESC')->take($attemptsLimit)->get();
+        $attempts = LogLogin::where('user', $request->input('user'))->orderBy('created_at', 'desc')->take($attemptsLimit)->get();
         
         $attemptsCounter = 0;
 
