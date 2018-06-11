@@ -92,7 +92,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/log_premiacao">
+                                        <a href="/log/premios">
                                             Log Premiacao
                                         </a>
                                     </li>
