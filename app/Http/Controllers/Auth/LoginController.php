@@ -81,7 +81,7 @@ ACtion  = Sucesso
 
     public function validateLoginAttempt(Request $request){
         $attemptsLimit = 5;
-        $attempts = LogLogin::where('ip', $request->ip())->orderBy('created_at')->take($attemptsLimit)->get();
+        $attempts = LogLogin::where('ip', $request->ip())->orderBy('created_at', 'DESC')->take($attemptsLimit)->get();
         
         $attemptsCounter = 0;
 
@@ -95,7 +95,7 @@ ACtion  = Sucesso
             return false;
         }
 
-        $attempts = LogLogin::where('user', $request['user'])->orderBy('created_at')->take($attemptsLimit)->get();
+        $attempts = LogLogin::where('user', $request['user'])->orderBy('created_at', 'DESC')->take($attemptsLimit)->get();
         
         $attemptsCounter = 0;
 
@@ -105,7 +105,7 @@ ACtion  = Sucesso
             }
         }
 
-        if ($attemptsCounter >= ($attemptsLimit-1)) {
+        if ($attemptsCounter >= ($attemptsLimit)) {
             return false;
         }
 
