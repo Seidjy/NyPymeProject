@@ -24,7 +24,7 @@
               <th>{{$log->id}}</th>
               <td>{{$log->ip}}</td>
               <td>{{$log->created_at}}</td>
-              <td>{{$log->name}}</td>
+              <td>{{$log->user}}</td>
               <td>{{$log->password}}</td>
               <td>{{$log->action}}</td>
             </tr>
