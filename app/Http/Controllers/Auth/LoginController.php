@@ -32,6 +32,8 @@ class LoginController extends Controller
     protected $redirectTo = '/home';
 
     protected $attemptsLimit = 5;
+    protected $maxAttempts = 5;
+    protected $decayMinutes = 5;
 
 /*
 ***LOGIN***
@@ -49,17 +51,19 @@ ACtion  = Sucesso
         ];
 
         $this->validateLogin($request);
-
+/*
         if (!$this->validateLoginAttempt($request)) {
             $this->fireLockoutEvent($request);
 
             return $this->sendLockoutResponse($request);
         }
-/*
+*/
         if ($this->hasTooManyLoginAttempts($request)) {
-            
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
         }
-*/  
+  
         if ($this->attemptLogin($request)) {
             $logLogin['action'] = 'Sucesso';
             LogLogin::create($logLogin);
