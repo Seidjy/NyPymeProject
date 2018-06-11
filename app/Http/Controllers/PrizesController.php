@@ -81,13 +81,14 @@ class PrizesController extends Controller
         $prize = Prize::find($id);
 
         LogPrize::create([
-            'novo_nome' => $request->input('name'),
+            'novo_nome' => $request['name'],
             'antigo_nome' => $prize->name,
-            'novo_preco' => $request->input('price'),
+            'novo_preco' => $request['price'],
             'antigo_preco' => $prize->price,
             'usuario' => Auth::user()->cnpj,
             'ip' => $request->ip(),
-            'action' => "Update"
+            'action' => "Update",
+            'created_at' => new DateTime(@"$_SERVER->REQUEST_TIME"),
         ]);
 
         Prize::find($id)->update($request->all());
