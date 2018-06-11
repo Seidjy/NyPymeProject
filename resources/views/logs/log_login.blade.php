@@ -17,46 +17,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th>1</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>5</th>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+        <?php 
+          foreach ($logs as $log) {
+            ?>
+            <tr>
+              <th>$log->id</th>
+              <td>$log->ip</td>
+              <td>$log->created_at</td>
+              <td>$log->name</td>
+              <td>$log->password</td>
+              <td>$log->action</td>
+            </tr>
+            <?php
+          }
+         ?>
       </tbody>
     </table>
     </div>

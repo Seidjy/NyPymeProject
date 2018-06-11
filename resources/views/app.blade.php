@@ -87,7 +87,7 @@
                                     </li>
                                     <?php if (Auth::user()->role == 2): ?>
                                         <li>
-                                        <a href="/log_login">
+                                        <a href="/log/login">
                                             Log Login
                                         </a>
                                     </li>

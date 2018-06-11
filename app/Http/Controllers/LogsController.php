@@ -24,21 +24,10 @@ class LogsController extends Controller
         return view('logs.log_premiacao', ['logs' => $logs]);
     }
 
-    protected function getPrizes(Request $request){
-        $prizes = DB::table('prizes')->where('cnpj',Auth::user()->cnpj)->get();
+    protected function logLogin(Request $request){
+        $logs = DB::table('log_login')->get();
 
-        $counter = 0;
-
-        
-        foreach ($prizes as $prize ) {
-            $response[] = [
-                "id" => $prize->id,
-                "nome" => $prize->name,
-                "preço" => $prize->price,
-            ];
-        }
-
-        return response()->json($response);
+        return view('logs.log_premiacao', ['logs' => $logs]);
     }
 
     public function getPrizesForCustomer(Request $request){

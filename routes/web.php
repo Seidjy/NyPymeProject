@@ -33,9 +33,7 @@ Route::post('/prize/{id}/update', 'PrizesController@update');
 
 Route::get('/prize/{id}/editar', 'PrizesController@edit');
 
-Route::get('/log_login', function () {
-        return view('logs/log_login');
-    });
+Route::get('/log/login', 'LogsController@logLogin');
 
 
 Route::get('/log/premios', 'LogsController@logPrize');
