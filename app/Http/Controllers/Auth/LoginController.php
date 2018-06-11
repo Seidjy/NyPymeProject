@@ -105,7 +105,7 @@ ACtion  = Sucesso
             }
         }
 
-        if ($attemptsCounter >= ($attemptsLimit)) {
+        if ($attemptsCounter >= ($attemptsLimit-1)) {
             return false;
         }
 
