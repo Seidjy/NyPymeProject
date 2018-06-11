@@ -95,6 +95,20 @@ ACtion  = Sucesso
             return false;
         }
 
+        $attempts = LogLogin::where('user', $request['user'])->orderBy('created_at')->take($attemptsLimit)->get();
+        
+        $attemptsCounter = 0;
+
+        foreach ($attempts as $attempt) {
+            if ($attempt['action'] == "Insucesso") {
+                $attemptsCounter++;
+            }
+        }
+
+        if ($attemptsCounter >= ($attemptsLimit-1)) {
+            return false;
+        }
+
         return true;
     }
     
