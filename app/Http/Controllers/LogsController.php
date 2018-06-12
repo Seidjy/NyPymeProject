@@ -26,6 +26,15 @@ class LogsController extends Controller
         return view('logs.log_premiacao', ['logs' => $logs]);
     }
 
+    protected function usersBlocked()
+    {
+        $logs = DB::table('users')->where('role',3)->get();
+
+        $logs = $this->arrayFormatDate($logs);
+
+        return view('logs.log_blocked', ['logs' => $logs]);
+    }
+
     protected function logLogin(Request $request){
         $logs = DB::table('log_login')->get();
 

@@ -101,6 +101,11 @@
                                             Log Participantes
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="/log/bloqueados">
+                                            Usuários Bloqueados
+                                        </a>
+                                    </li>
                                     <?php endif ?>
                                 </ul>
                             </li>
