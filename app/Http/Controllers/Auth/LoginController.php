@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\LogLogin;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -55,11 +56,15 @@ ACtion  = Sucesso
         if (!$this->validateLoginAttempt($request)) {
             $this->fireLockoutEvent($request);
 
-            return view('home');
+            $users = User::find($id)->update(['role' => 3]);
+
+            return $this->sendLockoutResponse($request);
         }
 
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
+
+            $users = User::find($id)->update(['role' => 3]);
 
             return $this->sendLockoutResponse($request);
         }
@@ -87,6 +92,14 @@ ACtion  = Sucesso
         $attempts = LogLogin::where('ip', $request->ip())->orderBy('created_at', 'desc')->take($attemptsLimit)->get();
         
         $attemptsCounter = 1;
+
+        $users = DB::table('users')->where('email',$request->input('email'))->get();
+
+        foreach ($users as $user) {
+            if ($user->role == "3"){
+                return false;
+            }
+        }
 
         foreach ($attempts as $attempt) {
             if ($attempt['action'] == "Insucesso") {
