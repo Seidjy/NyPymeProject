@@ -97,7 +97,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/log/participantes">
+                                        <a href="/log/participant">
                                             Log Participantes
                                         </a>
                                     </li>
