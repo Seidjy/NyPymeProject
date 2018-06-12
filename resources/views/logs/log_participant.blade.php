@@ -27,8 +27,8 @@
               <th>{{$log->id}}</th>
               <td>{{$log->novo_cpf}}</td>
               <td>{{$log->antigo_cpf}}</td>
-              <td>{{$log->nova_potuacao}}</td>
-              <td>{{$log->antiga_potuacao}}</td>
+              <td>{{$log->nova_pontuacao}}</td>
+              <td>{{$log->antiga_pontuacao}}</td>
               <td>{{$log->usuario}}</td>
               <td>{{$log->ip}}</td>
               <td>{{$log->action}}</td>
