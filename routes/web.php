@@ -44,6 +44,8 @@ Route::get('/log/login', 'LogsController@logLogin');
 
 Route::get('/log/premios', 'LogsController@logPrize');
 
+Route::get('/log/participant', 'LogsController@logParticipant');
+
 /*
 Route::get('/goals', function () {
     return view('evento_list');

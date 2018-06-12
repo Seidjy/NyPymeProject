@@ -93,7 +93,12 @@
                                     </li>
                                     <li>
                                         <a href="/log/premios">
-                                            Log Premiacao
+                                            Log Premiação
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/log/participantes">
+                                            Log Participantes
                                         </a>
                                     </li>
                                     <?php endif ?>

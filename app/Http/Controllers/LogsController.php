@@ -30,20 +30,21 @@ class LogsController extends Controller
         return view('logs.log_login', ['logs' => $logs]);
     }
 
-    public function getPrizesForCustomer(Request $request){
-        $prizes = DB::table('prizes')->where('cnpj',$request['cnpj'])->get();
+    protected function logLoginSuccess(Request $request){
+        $logs = DB::table('log_login')->where('action','Sucesso')->get();
 
-        $counter = 0;
+        return view('logs.log_login', ['logs' => $logs]);
+    }
 
-        
-        foreach ($prizes as $prize ) {
-            $response[] = [
-                "id" => $prize->id,
-                "nome" => $prize->name,
-                "preço" => $prize->price,
-            ];
-        }
+    protected function logLoginNotSuccess(Request $request){
+        $logs = DB::table('log_login')->where('action','Insucesso')->get();
 
-        return response()->json($response);
+        return view('logs.log_login', ['logs' => $logs]);
+    }
+
+    public function logParticipant(Request $request){
+        $logs = DB::table('log_participant')->get();
+
+        return view('logs.log_login', ['logs' => $logs]);
     }
 }
