@@ -129,8 +129,11 @@ class DealsController extends Controller
                                 ->where('id', $goal->idRuleToAward)
                                 ->first();
                             $customerPoints = $customerPoints + $awards->amount;
-                            
-                            $participant = Customer::where(['cnpj' => Auth::user()->cnpj, 'cpf' => $cpf])->get();
+
+                            $participant = DB::table('customers')->where([
+                                ['cpf', $cpf],
+                                ['cnpj', Auth::user()->cnpj],
+                            ])->first();
 
                             $logParticipant = LogParticipant::create([
                                 'novo_cpf' => $cpf,
