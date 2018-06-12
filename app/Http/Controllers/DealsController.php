@@ -105,7 +105,7 @@ class DealsController extends Controller
                                 'nova_pontuacao' => $customerPoints,
                                 'antiga_pontuacao' => $participant->points,
                                 'usuario' => Auth::user()->cnpj,
-                                'ip' => $request->ip(),
+                                'ip' => $data->ip(),
                                 'action' => "Update Pontos",
                                 'created_at' => new DateTime(@"$_SERVER->REQUEST_TIME"),
                             ]);
@@ -138,7 +138,7 @@ class DealsController extends Controller
                                 'nova_pontuacao' => $customerPoints,
                                 'antiga_pontuacao' => $participant->points,
                                 'usuario' => Auth::user()->cnpj,
-                                'ip' => $request->ip(),
+                                'ip' => $data->ip(),
                                 'action' => "Update Pontos",
                                 'created_at' => new DateTime(@"$_SERVER->REQUEST_TIME"),
                             ]);
