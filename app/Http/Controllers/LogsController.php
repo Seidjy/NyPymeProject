@@ -45,6 +45,6 @@ class LogsController extends Controller
     public function logParticipant(Request $request){
         $logs = DB::table('log_participant')->get();
 
-        return view('logs.log_login', ['logs' => $logs]);
+        return view('logs.log_participant', ['logs' => $logs]);
     }
 }
