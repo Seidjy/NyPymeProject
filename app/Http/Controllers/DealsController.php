@@ -95,6 +95,19 @@ class DealsController extends Controller
 
                             $customerPoints = $customerPoints + $awards->amount;
 
+                            $participant = Customer::find($id);
+
+                            $logParticipant = LogParticipant::create([
+                                'novo_cpf' => $cpf,
+                                'antigo_cpf' => $cpf,
+                                'nova_pontuacao' => $customerPoints,
+                                'antiga_pontuacao' => $participant->points,
+                                'usuario' => Auth::user()->cnpj,
+                                'ip' => $request->ip(),
+                                'action' => "Update Pontos",
+                                'created_at' => new DateTime(@"$_SERVER->REQUEST_TIME"),
+                            ]);
+
                             DB::table('customers')
                                 ->where('id', $customer->id)
                                 ->update(['points' => $customerPoints]);
@@ -114,6 +127,20 @@ class DealsController extends Controller
                                 ->where('id', $goal->idRuleToAward)
                                 ->first();
                             $customerPoints = $customerPoints + $awards->amount;
+
+                            $participant = Customer::find($id);
+
+                            $logParticipant = LogParticipant::create([
+                                'novo_cpf' => $cpf,
+                                'antigo_cpf' => $cpf,
+                                'nova_pontuacao' => $customerPoints,
+                                'antiga_pontuacao' => $participant->points,
+                                'usuario' => Auth::user()->cnpj,
+                                'ip' => $request->ip(),
+                                'action' => "Update Pontos",
+                                'created_at' => new DateTime(@"$_SERVER->REQUEST_TIME"),
+                            ]);
+
                             $customer = DB::table('customers')
                                 ->where('cpf', $cpf)
                                 ->update(['points' =>  $customerPoints]);
