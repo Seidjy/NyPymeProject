@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Prize extends Model
+class LogGoals extends Model
 {
     protected $fillable = [
         'id', 'name', 'cnpj', 'price',

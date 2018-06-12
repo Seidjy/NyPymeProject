@@ -4,13 +4,7 @@
     <h2 class="titulo">Log Login</h2> 
 
 <div class="container">
-<p class="botao">
-<form>
-  <button formaction="" type="button" class="btn btn-success">Filtrar por Sucesso</button>
-</form>
-<form>
-  <button type="button" class="btn btn-danger">Filtrar por insucesso</button>
-</form>
+<p class="botao"> <a href="/log/login/sucesso" type="button" class="btn btn-success">Filtrar por Sucesso</a> <a href="/log/login/insucesso" type="button" class="btn btn-danger">Filtrar por insucesso</a>
 
   <div class="table-responsive">
     <table class="table table-striped table-bordered">
