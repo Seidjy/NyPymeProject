@@ -152,7 +152,7 @@ class CustomerController extends Controller
         $logParticipant = LogParticipant::create([
             'novo_cpf' => $request['cpf'],
             'antigo_cpf' => $participant->cpf,
-            'nova_pontuacao' => $participant->point,
+            'nova_pontuacao' => $participant->points,
             'antiga_pontuacao' => $participant->points,
             'usuario' => Auth::user()->cnpj,
             'ip' => $request->ip(),
