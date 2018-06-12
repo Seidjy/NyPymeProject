@@ -4,6 +4,15 @@
     <h2 class="titulo">Log dos Prêmios</h2>  
 
 <div class="container">
+  <form action="/action_page.php">
+  <h4>Filtro de Pesquisa</h4>
+ <p class="datetime"> <input type="datetime-local" name="bdaytime">
+  <input type="submit" class="btn btn-info" value="Filtrar">
+
+  <p class="datetime1"> <input type="datetime-local" name="bdaytime">
+  <input type="submit" class="btn btn-info" value="Filtrar">
+</form>
+
   <div class="table-responsive">
     <table class="table table-striped table-bordered">
       <thead>

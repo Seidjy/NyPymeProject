@@ -96,6 +96,11 @@
                                             Log Premiacao
                                         </a>
                                     </li>
+                                     <li>
+                                        <a href="/log/customers">
+                                            Log Participantes
+                                        </a>
+                                    </li>
                                     <?php endif ?>
                                 </ul>
                             </li>

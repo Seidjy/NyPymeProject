@@ -4,6 +4,8 @@
     <h2 class="titulo">Log Login</h2> 
 
 <div class="container">
+<p class="botao"> <button type="button" class="btn btn-success">Filtrar por Sucesso</button>
+<button type="button" class="btn btn-danger">Filtrar por insucesso</button>
   <div class="table-responsive">
     <table class="table table-striped table-bordered">
       <thead>
