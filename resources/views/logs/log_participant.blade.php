@@ -34,12 +34,13 @@
             ?>
             <tr>
               <th>{{$log->id}}</th>
+              <td>{{$log->ip}}</td>
+              <td>{{$log->usuario}}</td>
+              <td>{{$log->created_at}}</td>
               <td>{{$log->novo_cpf}}</td>
               <td>{{$log->antigo_cpf}}</td>
-              <td>{{$log->nova_potuacao}}</td>
-              <td>{{$log->antiga_potuacao}}</td>
-              <td>{{$log->usuario}}</td>
-              <td>{{$log->ip}}</td>
+              <td>{{$log->nova_pontuacao}}</td>
+              <td>{{$log->antiga_pontuacao}}</td>
               <td>{{$log->action}}</td>
             </tr>
             <?php

@@ -51,13 +51,13 @@ ACtion  = Sucesso
         ];
 
         $this->validateLogin($request);
-/*
+
         if (!$this->validateLoginAttempt($request)) {
             $this->fireLockoutEvent($request);
 
-            return $this->sendLockoutResponse($request);
+            return view('home');
         }
-*/
+
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
 

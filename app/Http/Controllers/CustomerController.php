@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use App\Customer;
+use App\LogParticipant;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -136,8 +138,10 @@ class CustomerController extends Controller
     //edit
     public function edit($id)
     {
-        $members = Customer::find($id);
-        return view('customers.customer_edit',compact('members'));
+        $customer = Customer::find($id);
+        return view('customers.participant_edit',[
+            'customer' => $customer
+        ]);
     }
 
     //update
@@ -145,11 +149,11 @@ class CustomerController extends Controller
     {
         $participant = Customer::find($id);
 
-        $prize = LogParticipant::create([
-            'novo_cpf' => $request['name'],
-            'antigo_cpf' => $prize->name,
-            'nova_pontuacao' => $request['price'],
-            'antiga_pontuacao' => $prize->price,
+        $logParticipant = LogParticipant::create([
+            'novo_cpf' => $request['cpf'],
+            'antigo_cpf' => $participant->cpf,
+            'nova_pontuacao' => $participant->points,
+            'antiga_pontuacao' => $participant->points,
             'usuario' => Auth::user()->cnpj,
             'ip' => $request->ip(),
             'action' => "Update CPF",
@@ -157,7 +161,7 @@ class CustomerController extends Controller
         ]);
 
         Customer::find($id)->update($request->all());
-        return redirect()->route('customer.index');
+        return redirect()->route('customers.index');
     }
 
     //destroy
