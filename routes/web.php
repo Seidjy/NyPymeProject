@@ -41,6 +41,9 @@ Route::get('/participant/{id}/editar', 'CustomerController@edit');
 
 Route::get('/log/login', 'LogsController@logLogin');
 
+Route::get('/log/login/sucesso', 'LogsController@logLoginSuccess');
+
+Route::get('/log/login/insucesso', 'LogsController@logLoginNotSuccess');
 
 Route::get('/log/premios', 'LogsController@logPrize');
 
