@@ -6,10 +6,10 @@
 <div class="container">
   <form action="/log/premios/data" method="POST">
   <h4>Filtro de Pesquisa</h4>
- <p class="datetime"> <input type="datetime-local" name="bdaytime">
+ <p class="datetime"> <input type="datetime-local" name="first_date">
   <input type="submit" class="btn btn-info" value="Filtrar">
 
-  <p class="datetime1"> <input type="datetime-local" name="bdaytime">
+  <p class="datetime1"> <input type="datetime-local" name="last_date">
   <input type="submit" class="btn btn-info" value="Filtrar">
 </form>
 
