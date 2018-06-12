@@ -96,7 +96,7 @@ class DealsController extends Controller
 
                             $customerPoints = $customerPoints + $awards->amount;
 
-                            $participant = Customer::find($id);
+                            $participant = Customer::find($customer->id);
 
                             $logParticipant = LogParticipant::create([
                                 'novo_cpf' => $cpf,
@@ -129,7 +129,7 @@ class DealsController extends Controller
                                 ->first();
                             $customerPoints = $customerPoints + $awards->amount;
 
-                            $participant = Customer::find($id);
+                            $participant = Customer::find($customer->id);
 
                             $logParticipant = LogParticipant::create([
                                 'novo_cpf' => $cpf,
