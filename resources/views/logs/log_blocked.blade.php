@@ -21,8 +21,8 @@
             <tr>
               <th>{{$log->id}}</th>
               <td>{{$log->email}}</td>
-              <td>{{$log->cnpj}}</td>
               <td>{{$log->name}}</td>
+              <td>{{$log->cnpj}}</td>
             </tr>
             <?php
           }
