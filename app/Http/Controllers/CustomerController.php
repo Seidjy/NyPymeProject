@@ -150,10 +150,10 @@ class CustomerController extends Controller
         $participant = Customer::find($id);
 
         $logParticipant = LogParticipant::create([
-            'novo_cpf' => $request['name'],
-            'antigo_cpf' => $participant->name,
-            'nova_pontuacao' => $request['price'],
-            'antiga_pontuacao' => $participant->price,
+            'novo_cpf' => $request['cpf'],
+            'antigo_cpf' => $participant->cpf,
+            'nova_pontuacao' => $participant->cpf,
+            'antiga_pontuacao' => $participant->cpf,
             'usuario' => Auth::user()->cnpj,
             'ip' => $request->ip(),
             'action' => "Update CPF",
