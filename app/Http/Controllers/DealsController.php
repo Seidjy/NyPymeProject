@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Deal;
 use App\Http\Controllers\CustomerController;
 use App\Customer;
+use App\LogParticipant;
 use Illuminate\Http\Request;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
