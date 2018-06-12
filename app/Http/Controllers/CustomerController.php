@@ -161,7 +161,7 @@ class CustomerController extends Controller
         ]);
 
         Customer::find($id)->update($request->all());
-        return redirect()->route('customer.index');
+        return redirect()->route('customers.index');
     }
 
     //destroy
