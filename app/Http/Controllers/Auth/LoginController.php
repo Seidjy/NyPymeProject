@@ -57,7 +57,7 @@ ACtion  = Sucesso
         if (!$this->validateLoginAttempt($request)) {
             $this->fireLockoutEvent($request);
 
-            $users = User::find($id)->update(['role' => 3]);
+            $users = User::where('email',$request->input('email'))->update(['role' => 3]);
 
             return $this->sendLockoutResponse($request);
         }
@@ -65,7 +65,7 @@ ACtion  = Sucesso
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
 
-            $users = User::find($id)->update(['role' => 3]);
+            $users = User::where('email',$request->input('email'))->update(['role' => 3]);
 
             return $this->sendLockoutResponse($request);
         }
