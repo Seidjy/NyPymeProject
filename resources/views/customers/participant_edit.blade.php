@@ -3,7 +3,7 @@
 @section('conteudo')
     <h2 class="titulo">Definir Recompensa</h2>
 
-    <form action="/customer/{{$customer->id}}/update" method="POST" role="form" class="fformularios">
+    <form action="/participant/{{$customer->id}}/update" method="POST" role="form" class="fformularios">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" >
        <div class="form-group form-contact">
             <label>CPF</label>

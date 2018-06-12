@@ -138,7 +138,6 @@ class CustomerController extends Controller
     {
         $customer = Customer::find($id);
         return view('customers.participant_edit',[
-            
             'customer' => $customer
         ]);
     }
