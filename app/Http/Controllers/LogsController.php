@@ -75,6 +75,9 @@ class LogsController extends Controller
     }
 
     public function logParticipantDate(Request $request){
+        $first_date = new DateTime($request['first_date']);
+        $last_date = new DateTime($request['last_date']);
+
         $logs = DB::table('log_participant')
         ->where('created_at', '>=', $first_date)
         ->where('created_at', '<=', $last_date)

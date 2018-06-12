@@ -51,6 +51,8 @@ Route::post('/log/premios/data', 'LogsController@logPrizeDate');
 
 Route::get('/log/participant', 'LogsController@logParticipant');
 
+Route::post('/log/participant/data', 'LogsController@logParticipantDate');
+
 /*
 Route::get('/goals', function () {
     return view('evento_list');

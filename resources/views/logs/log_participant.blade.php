@@ -4,8 +4,9 @@
     <h2 class="titulo">Log dos Participantes</h2> 
 
 <div class="container">
-  <form action="/action_page.php">
-  <h4>Filtro de Pesquisa</h4>
+  <form action="/log/participant/data"  method="POST" role="form">
+     <input type="hidden" name="_token" value="{{ csrf_token() }}" >
+     <h4>Filtro de Pesquisa</h4>
  <p class="datetime"> <input type="datetime-local" name="first_date">
 
   <p class="datetime1"> <input type="datetime-local" name="last_date">
