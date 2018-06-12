@@ -47,4 +47,19 @@ class LogsController extends Controller
 
         return view('logs.log_participant', ['logs' => $logs]);
     }
+
+    public function logPrizeDate(Request $request){
+        $first_date = $request['first_date'];
+        $last_date =  $request['last_date'];
+
+        $logs = DB::table('log_prize')->whereBetween('created_at', array($first_date, $last_date))->get();
+
+        return view('logs.log_premiacao', ['logs' => $logs]);
+    }
+
+    public function logParticipantDate(Request $request){
+        $logs = DB::table('log_participant')->get();
+
+        return view('logs.log_participant', ['logs' => $logs]);
+    }
 }

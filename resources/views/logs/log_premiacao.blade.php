@@ -4,7 +4,7 @@
     <h2 class="titulo">Log dos Prêmios</h2>  
 
 <div class="container">
-  <form action="/action_page.php">
+  <form action="/log/premios/data" method="POST">
   <h4>Filtro de Pesquisa</h4>
  <p class="datetime"> <input type="datetime-local" name="bdaytime">
   <input type="submit" class="btn btn-info" value="Filtrar">

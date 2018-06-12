@@ -47,6 +47,8 @@ Route::get('/log/login/insucesso', 'LogsController@logLoginNotSuccess');
 
 Route::get('/log/premios', 'LogsController@logPrize');
 
+Route::post('/log/premios/data', 'LogsController@logPrizeDate');
+
 Route::get('/log/participant', 'LogsController@logParticipant');
 
 /*

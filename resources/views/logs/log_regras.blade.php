@@ -6,7 +6,7 @@
 <div class="container">
   <form action="/action_page.php">
   <h4>Filtro de Pesquisa</h4>
- <p class="datetime"> <input type="datetime-local" name="first_date">
+ <p class="datetime"> De <input type="datetime-local" name="first_date"> Até 
 
   <p class="datetime1"> <input type="datetime-local" name="last_date">
   <input type="submit" class="btn btn-info" value="Filtrar">
