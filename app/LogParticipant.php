@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LogLogin extends Model
+class LogParticipant extends Model
 {
     protected $table = 'log_participant';
     protected $fillable = [
