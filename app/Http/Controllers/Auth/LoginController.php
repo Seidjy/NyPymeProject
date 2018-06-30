@@ -54,14 +54,6 @@ ACtion  = Sucesso
 
         $this->validateLogin($request);
 
-        if (!$this->validateLoginAttempt($request)) {
-            $this->fireLockoutEvent($request);
-
-            $users = User::where('email',$request->input('email'))->update(['role' => 1]);
-
-            return $this->sendLockoutResponse($request);
-        }
-
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
 
